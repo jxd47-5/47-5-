@@ -31,8 +31,8 @@ persons:
 
 #注册映射文件
 mybatis-plus:
-  mapper-locations: classpath*:com/jxd/emp/dao/mapping/*.xml
-  type-aliases-package: com.jxd.emp.model #设置实体类别名
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.jxd.studentManage.model #设置实体类别名
 
 beetl:
   #当确定前台文件的目录位置后,后缀设置可以省略
