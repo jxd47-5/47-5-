@@ -144,24 +144,5 @@ public class Student {
         this.departmentId = departmentId;
     }
 
-    public Student(int studentId, String studentName, String sex, String nation, String birthday, String address, String isMarried, String tel, String school, String major, String remark, String photo, int isDelete, int classId, int departmentId) {
-        this.studentId = studentId;
-        this.studentName = studentName;
-        this.sex = sex;
-        this.nation = nation;
-        this.birthday = birthday;
-        this.address = address;
-        this.isMarried = isMarried;
-        this.tel = tel;
-        this.school = school;
-        this.major = major;
-        this.remark = remark;
-        this.photo = photo;
-        this.isDelete = isDelete;
-        this.classId = classId;
-        this.departmentId = departmentId;
-    }
 
-    public Student() {
-    }
 }

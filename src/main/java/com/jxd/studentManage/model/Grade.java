@@ -45,13 +45,5 @@ public class Grade {
         this.studentId = studentId;
     }
 
-    public Grade(int gradeId, int grade, int courseId, int studentId) {
-        this.gradeId = gradeId;
-        this.grade = grade;
-        this.courseId = courseId;
-        this.studentId = studentId;
-    }
 
-    public Grade() {
-    }
 }

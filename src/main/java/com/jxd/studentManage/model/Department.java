@@ -27,11 +27,5 @@ public class Department {
         this.departmentName = departmentName;
     }
 
-    public Department(int departmengid, String departmentName) {
-        this.departmengid = departmengid;
-        this.departmentName = departmentName;
-    }
 
-    public Department() {
-    }
 }

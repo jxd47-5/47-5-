@@ -36,12 +36,5 @@ public class Performence {
         this.markId = markId;
     }
 
-    public Performence(int pid, int score, int markId) {
-        this.pid = pid;
-        this.score = score;
-        this.markId = markId;
-    }
 
-    public Performence() {
-    }
 }

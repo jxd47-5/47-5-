@@ -27,11 +27,5 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public Course(int courseId, String courseName) {
-        this.courseId = courseId;
-        this.courseName = courseName;
-    }
 
-    public Course() {
-    }
 }

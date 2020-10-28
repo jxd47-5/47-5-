@@ -36,12 +36,5 @@ public class Duty {
         this.departmentId = departmentId;
     }
 
-    public Duty(int dutyId, String dutyName, int departmentId) {
-        this.dutyId = dutyId;
-        this.dutyName = dutyName;
-        this.departmentId = departmentId;
-    }
 
-    public Duty() {
-    }
 }

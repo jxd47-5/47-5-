@@ -27,11 +27,5 @@ public class Teacher {
         this.teacherName = teacherName;
     }
 
-    public Teacher(int teacherId, String teacherName) {
-        this.teacherId = teacherId;
-        this.teacherName = teacherName;
-    }
 
-    public Teacher() {
-    }
 }

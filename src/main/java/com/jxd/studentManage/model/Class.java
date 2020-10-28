@@ -36,12 +36,5 @@ public class Class {
         this.teacherId = teacherId;
     }
 
-    public Class(int classId, String className, int teacherId) {
-        this.classId = classId;
-        this.className = className;
-        this.teacherId = teacherId;
-    }
 
-    public Class() {
-    }
 }

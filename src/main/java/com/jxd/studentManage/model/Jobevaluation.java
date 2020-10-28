@@ -81,17 +81,5 @@ public class Jobevaluation {
         this.dutyId = dutyId;
     }
 
-    public Jobevaluation(int jid, String evaluater, String evaluation, int score, String departmentName, int depatrtmentId, String dutyName, int dutyId) {
-        this.jid = jid;
-        this.evaluater = evaluater;
-        this.evaluation = evaluation;
-        this.score = score;
-        this.departmentName = departmentName;
-        this.depatrtmentId = depatrtmentId;
-        this.dutyName = dutyName;
-        this.dutyId = dutyId;
-    }
 
-    public Jobevaluation() {
-    }
 }

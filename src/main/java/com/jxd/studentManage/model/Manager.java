@@ -36,12 +36,5 @@ public class Manager {
         this.departmentId = departmentId;
     }
 
-    public Manager(int managerId, String managerName, int departmentId) {
-        this.managerId = managerId;
-        this.managerName = managerName;
-        this.departmentId = departmentId;
-    }
 
-    public Manager() {
-    }
 }

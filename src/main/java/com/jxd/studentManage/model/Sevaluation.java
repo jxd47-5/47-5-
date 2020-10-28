@@ -72,16 +72,5 @@ public class Sevaluation {
         this.classId = classId;
     }
 
-    public Sevaluation(int sid, String evaluater, String evaluation, int score, String className, int studentId, int classId) {
-        this.sid = sid;
-        this.evaluater = evaluater;
-        this.evaluation = evaluation;
-        this.score = score;
-        this.className = className;
-        this.studentId = studentId;
-        this.classId = classId;
-    }
 
-    public Sevaluation() {
-    }
 }
