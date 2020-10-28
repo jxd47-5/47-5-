@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jxd.studentManage.mapper.ILoginMapper">
-    <select id="getAllUser">
+    <select id="getAllUser" resultType="com.jxd.studentManage.model.User">
         select * from user;
     </select>
 </mapper>
