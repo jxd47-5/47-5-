@@ -21,6 +21,7 @@ public class LoginServiceImpl extends ServiceImpl<ILoginMapper, User> implements
     @Autowired
     private ILoginMapper loginMapper;
 
+
     @Override
     public List<User> getAllUser() {
         return loginMapper.getAllUser();
