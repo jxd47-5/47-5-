@@ -36,5 +36,4 @@ public class Class {
         this.teacherId = teacherId;
     }
 
-
 }
