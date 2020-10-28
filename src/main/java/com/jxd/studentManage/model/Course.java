@@ -10,6 +10,7 @@ package com.jxd.studentManage.model;
 public class Course {
     private int courseId;
     private String courseName;
+    private String status;
 
     public int getCourseId() {
         return courseId;
@@ -27,5 +28,11 @@ public class Course {
         this.courseName = courseName;
     }
 
+    public String getStatus() {
+        return status;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

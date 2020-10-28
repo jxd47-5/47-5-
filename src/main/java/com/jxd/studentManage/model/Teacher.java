@@ -10,6 +10,7 @@ package com.jxd.studentManage.model;
 public class Teacher {
     private int teacherId;
     private String teacherName;
+    private int departmentId;
 
     public int getTeacherId() {
         return teacherId;
@@ -27,5 +28,11 @@ public class Teacher {
         this.teacherName = teacherName;
     }
 
+    public int getDepartmentId() {
+        return departmentId;
+    }
 
+    public void setDepartmentId(int departmentId) {
+        this.departmentId = departmentId;
+    }
 }
