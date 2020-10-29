@@ -26,6 +26,7 @@ public class Student {
     private int isDelete;
     private int classId;
     private int departmentId;
+    private String idCard;
 
     public int getStudentId() {
         return studentId;
@@ -147,5 +148,11 @@ public class Student {
         this.departmentId = departmentId;
     }
 
+    public String getIdCard() {
+        return idCard;
+    }
 
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
+    }
 }
