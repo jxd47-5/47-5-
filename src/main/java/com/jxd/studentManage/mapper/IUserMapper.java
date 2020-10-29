@@ -5,6 +5,7 @@ import com.jxd.studentManage.model.User;
 
 import java.util.List;
 
+
 public interface IUserMapper extends BaseMapper<User> {
-    List<User> getAllUser();
+    List<User> getUser();
 }

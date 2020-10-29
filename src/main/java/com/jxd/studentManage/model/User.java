@@ -1,5 +1,7 @@
 package com.jxd.studentManage.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 /**
  * @ClassName user
  * @Description TODO
@@ -8,6 +10,7 @@ package com.jxd.studentManage.model;
  * @Version 1.0
  */
 public class User {
+    @TableId
     private int userId;
     private String userName;
     private String password;

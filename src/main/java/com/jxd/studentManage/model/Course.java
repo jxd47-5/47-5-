@@ -1,5 +1,7 @@
 package com.jxd.studentManage.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 /**
  * @ClassName Course
  * @Description TODO
@@ -8,6 +10,7 @@ package com.jxd.studentManage.model;
  * @Version 1.0
  */
 public class Course {
+    @TableId
     private int courseId;
     private String courseName;
     private String status;

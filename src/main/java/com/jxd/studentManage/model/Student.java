@@ -1,5 +1,7 @@
 package com.jxd.studentManage.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 /**
  * @ClassName Student
  * @Description TODO
@@ -8,6 +10,7 @@ package com.jxd.studentManage.model;
  * @Version 1.0
  */
 public class Student {
+    @TableId
     private int studentId;
     private String studentName;
     private String sex;
@@ -23,6 +26,7 @@ public class Student {
     private int isDelete;
     private int classId;
     private int departmentId;
+    private String idCard;
 
     public int getStudentId() {
         return studentId;
@@ -144,5 +148,11 @@ public class Student {
         this.departmentId = departmentId;
     }
 
+    public String getIdCard() {
+        return idCard;
+    }
 
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
+    }
 }

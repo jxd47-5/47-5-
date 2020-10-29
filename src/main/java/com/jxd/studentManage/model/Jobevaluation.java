@@ -1,5 +1,7 @@
 package com.jxd.studentManage.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 /**
  * @ClassName Jobevaluation
  * @Description TODO
@@ -8,6 +10,7 @@ package com.jxd.studentManage.model;
  * @Version 1.0
  */
 public class Jobevaluation {
+    @TableId
     private int jid;
     private String evaluater;
     private String evaluation;

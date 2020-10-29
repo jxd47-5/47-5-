@@ -1,5 +1,7 @@
 package com.jxd.studentManage.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 /**
  * @ClassName Performence
  * @Description TODO
@@ -8,6 +10,7 @@ package com.jxd.studentManage.model;
  * @Version 1.0
  */
 public class Performence {
+    @TableId
     private int pid;
     private int score;
     private int markId;
