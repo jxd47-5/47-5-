@@ -34,9 +34,9 @@ mybatis-plus:
   mapper-locations: classpath*:com/jxd/studentManage/mapper/impl/*.xml
   type-aliases-package: com.jxd.studentManage.model #设置实体类别名
 
-beetl:
+#beetl:
   #当确定前台文件的目录位置后,后缀设置可以省略
   #suffix: html  #将beetl的模板文件后缀定义为html
   #改变beetl的分隔符,以@开头,回车结束
-  DELIMITER_STATEMENT_START: \@
-  DELIMITER_STATEMENT_END: null
+  #DELIMITER_STATEMENT_START: \@
+  #DELIMITER_STATEMENT_END: null
