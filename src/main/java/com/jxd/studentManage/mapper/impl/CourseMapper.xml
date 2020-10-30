@@ -6,4 +6,7 @@
     <select id="getAllCourse" resultType="Course">
         select * from course
     </select>
+    <insert id="addCourse">
+        insert into course(coursename,status) values(#{courseName},#{status})
+    </insert>
 </mapper>

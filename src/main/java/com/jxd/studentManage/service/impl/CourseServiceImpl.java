@@ -24,4 +24,9 @@ public class CourseServiceImpl extends ServiceImpl<ICourseMapper, Course> implem
     public List<Course> getAllCourse() {
         return courseMapper.getAllCourse();
     }
+
+    @Override
+    public boolean addCourse(String courseName, String status) {
+        return courseMapper.addCourse(courseName,status);
+    }
 }
