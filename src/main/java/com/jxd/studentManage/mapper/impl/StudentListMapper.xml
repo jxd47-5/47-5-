@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxd.studentManage.mapper.IStudentListMapper">
+    <!--默认显示查询全部员工数据-->
+    <select id="getAllStudent" resultType="Student">
+        SELECT	s.studentname,	de.departmentname,	du.dutyname
+        FROM student s,	department de,	duty du
+        WHERE de.departmentid = du.departmentid = s.departmentid
+    </select>
+
+    <!--查询按钮-->
+    <select id="getAllStudentByNameAndDept" resultType="Student">
+        select s.studentname,de.departmentname,du.dutyname
+        from student s,	department de,	duty du
+        <if test="studentname != null and studentname != ''">
+            where studentname like concat('%',#{studentname},'%')
+        </if>
+    </select>
+
+    <!--假删除-->
+    <update id="delStudent" parameterType="Student">
+        update student set isdelete=1 where studentid in(
+        <foreach collection="array" item="studentId" separator=",">
+            #{studentId}
+        </foreach>
+        )
+    </update>
+
+    <!--修改-->
+    <update id="editStudent" parameterType="Student">
+        update student set
+        nation=#{nation},birthday=#{birthday},address=#{address},isMarried=#{isMarried},tel=#{tel},
+        school=#{school},major=#{major},remark=#{remark},photo=#{photo},idCard=#{idCard},
+        where studentid = #{studentid}
+    </update>
+
+    <!--添加-->
+    <insert id="addStudent" parameterType="Student">
+        insert into student
+        (studentname,nation,birthday,address,isMarried,tel,school,major,remark,photo,idCard)
+        values
+        (#{studentname},#{nation},#{birthday},#{address},#{isMarried},#{tel},#{school},#{major},
+        #{remark},#{photo},#{idCard})
+    </insert>
+</mapper>
