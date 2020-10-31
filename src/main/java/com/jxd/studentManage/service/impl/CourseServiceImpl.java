@@ -29,4 +29,5 @@ public class CourseServiceImpl extends ServiceImpl<ICourseMapper, Course> implem
     public boolean addCourse(String courseName, String status) {
         return courseMapper.addCourse(courseName,status);
     }
+
 }
