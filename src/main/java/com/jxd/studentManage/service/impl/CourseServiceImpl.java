@@ -30,4 +30,9 @@ public class CourseServiceImpl extends ServiceImpl<ICourseMapper, Course> implem
         return courseMapper.addCourse(courseName,status);
     }
 
+    @Override
+    public boolean editCourse(int courseId,String courseName, String status) {
+        return courseMapper.editCourse(courseId,courseName,status);
+    }
+
 }

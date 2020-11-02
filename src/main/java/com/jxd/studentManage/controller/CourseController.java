@@ -57,4 +57,32 @@ public class CourseController {
 
 
     }
+
+    @RequestMapping("/editCourse/{courseId}/{name}/{status}")
+    @ResponseBody
+    public String editCourse(@PathVariable("courseId") int courseId ,@PathVariable("name") String courseName, @PathVariable("status") String status) {
+
+
+            if (courseService.editCourse(courseId,courseName, status)) {
+                return "success";
+
+            } else {
+                return "error";
+            }
+
+    }
+
+    @RequestMapping("selectCourseName/{courseName}")
+    @ResponseBody
+    public String selectCourseName(@PathVariable("courseName") String name){
+        List<Course> list =  courseService.getAllCourse();
+        for (Course course:list){
+            if (name.equals(course.getCourseName())){
+                return "success";
+            }
+        }
+            return "error";
+
+    }
+
 }

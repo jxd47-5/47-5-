@@ -8,4 +8,5 @@ import java.util.List;
 public interface ICourseMapper extends BaseMapper<Course> {
     List<Course> getAllCourse();
     boolean addCourse(String courseName,String status);
+    boolean editCourse(int courseId,String courseName,String status);
 }

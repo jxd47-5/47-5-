@@ -10,4 +10,7 @@
     <insert id="addCourse">
         insert into course(coursename,status) values(#{courseName},#{status})
     </insert>
+    <update id="editCourse">
+        update course set coursename = #{courseName},status = #{status} where courseid = #{courseId}
+    </update>
 </mapper>
