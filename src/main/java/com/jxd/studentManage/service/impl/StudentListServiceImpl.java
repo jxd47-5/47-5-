@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * className: StudentListServiceImpl
@@ -21,12 +22,12 @@ public class StudentListServiceImpl extends ServiceImpl<IStudentListMapper, Stud
 
 
     @Override
-    public List<Student> getAll() {
+    public List<Map<String, Object>> getAll() {
         return studentListMapper.getAllStudent();
     }
 
     @Override
-    public List<Student> getAllByNameAndDept() {
+    public List<Map<String, Object>> getAllByNameAndDept() {
         return studentListMapper.getAllStudentByNameAndDept();
     }
 

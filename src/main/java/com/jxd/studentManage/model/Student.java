@@ -27,6 +27,15 @@ public class Student {
     private int classId;
     private int departmentId;
     private String idCard;
+    private int dutyId;
+
+    public int getDutyId() {
+        return dutyId;
+    }
+
+    public void setDutyId(int dutyId) {
+        this.dutyId = dutyId;
+    }
 
     public int getStudentId() {
         return studentId;

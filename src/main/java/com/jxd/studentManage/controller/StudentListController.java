@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * className: StudentListController
@@ -21,7 +22,7 @@ public class StudentListController {
 
     @RequestMapping("/getAllStudent")
     @ResponseBody
-    public List<Student> getAllStudent() {
+    public List<Map<String, Object>> getAllStudent() {
         return studentListService.getAll();
     }
 }

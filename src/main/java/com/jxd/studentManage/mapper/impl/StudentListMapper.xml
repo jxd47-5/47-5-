@@ -3,14 +3,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jxd.studentManage.mapper.IStudentListMapper">
     <!--默认显示查询全部员工数据-->
-    <select id="getAllStudent" resultType="Student">
-        SELECT	s.studentname,	de.departmentname,	du.dutyname
-        FROM student s,	department de,	duty du
-        WHERE de.departmentid = du.departmentid = s.departmentid
+    <select id="getAllStudent" resultType="java.util.HashMap">
+        SELECT s.studentid,s.studentname,de.departmentname,du.dutyname
+        FROM student s,department de,duty du
+        where s.departmentid=de.departmentid
+        and s.dutyid=du.dutyid
     </select>
 
     <!--查询按钮-->
-    <select id="getAllStudentByNameAndDept" resultType="Student">
+    <select id="getAllStudentByNameAndDept" resultType="java.util.HashMap">
         select s.studentname,de.departmentname,du.dutyname
         from student s,	department de,	duty du
         <if test="studentname != null and studentname != ''">
