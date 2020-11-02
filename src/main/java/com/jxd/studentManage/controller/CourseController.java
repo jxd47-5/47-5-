@@ -81,8 +81,18 @@ public class CourseController {
                 return "success";
             }
         }
-            return "error";
+        return "error";
 
     }
+    @RequestMapping("/selectAllCourse/{courseName}")
+    @ResponseBody
+    public List<Course> selectAllCourse(@PathVariable("courseName") String coursename) {
+        //条件构造对象
+        //Wrapper<Dept> wrapper = new AbstractWrapper<>() {};
+
+
+        return courseService.selectAllCourse(coursename);
+    }
+
 
 }

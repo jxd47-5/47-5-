@@ -4,6 +4,6 @@
 <!--namespace接口的全路径，用于关联dao层接口-->
 <mapper namespace="com.jxd.studentManage.mapper.ILoginMapper">
     <select id="getAllUser" resultType="User">
-        select * from user
+        select userid,username,password,role from user
     </select>
 </mapper>
