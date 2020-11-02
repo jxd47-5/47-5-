@@ -11,16 +11,16 @@ import com.baomidou.mybatisplus.annotation.TableId;
  */
 public class Department {
     @TableId
-    private int departmengid;
+    private int departmentId;
     private String departmentName;
     private String status;
 
-    public int getDepartmengid() {
-        return departmengid;
+    public int getDepartmentId() {
+        return departmentId;
     }
 
-    public void setDepartmengid(int departmengid) {
-        this.departmengid = departmengid;
+    public void setDepartmentId(int departmengId) {
+        this.departmentId = departmengId;
     }
 
     public String getDepartmentName() {
