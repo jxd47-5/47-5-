@@ -20,9 +20,17 @@ public class StudentListController {
     @Autowired
     IStudentListService studentListService;
 
+
     @RequestMapping("/getAllStudent")
     @ResponseBody
     public List<Map<String, Object>> getAllStudent() {
         return studentListService.getAll();
+    }
+
+    @RequestMapping("/getAllStudentByNameAndDept/{studentname}/{departmentname}")
+    @ResponseBody
+    public List<Map<String, Object>> getAllStudentByNameAndDept(String studentname, String departmentname) {
+        System.out.println(studentListService.getAllByNameAndDept(studentname, departmentname).size());
+        return studentListService.getAllByNameAndDept(studentname, departmentname);
     }
 }

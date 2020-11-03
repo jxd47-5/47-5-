@@ -12,11 +12,20 @@
 
     <!--查询按钮-->
     <select id="getAllStudentByNameAndDept" resultType="java.util.HashMap">
-        select s.studentname,de.departmentname,du.dutyname
-        from student s,	department de,	duty du
-        <if test="studentname != null and studentname != ''">
-            where studentname like concat('%',#{studentname},'%')
-        </if>
+        select s.studentid,s.studentname,de.departmentname,du.dutyname
+        from student s
+        LEFT JOIN department de ON s.departmentid = de.departmentid
+        LEFT JOIN duty du ON de.departmentid = du.dutyid
+
+
+        <where>
+            <if test="studentname != null and studentname != ''">
+                s.studentname like concat('%',#{studentname},'%')
+            </if>
+            <if test="departmentname != null and departmentname != ''">
+                and de.departmentname like concat('%',#{departmentname},'%')
+            </if>
+        </where>
     </select>
 
     <!--假删除-->
