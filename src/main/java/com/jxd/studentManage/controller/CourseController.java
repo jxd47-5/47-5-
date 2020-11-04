@@ -93,6 +93,10 @@ public class CourseController {
 
         return courseService.selectAllCourse(coursename);
     }
-
+    @RequestMapping("/getCourseName")
+    @ResponseBody
+    public List<Course> getCourseName(){
+        return courseService.getCourseName();
+    }
 
 }
