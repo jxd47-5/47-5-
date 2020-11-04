@@ -9,7 +9,7 @@ import java.util.Map;
 public interface IStudentListService extends IService<Student> {
     List<Map<String, Object>> getAll();
 
-    List<Map<String, Object>> getAllByNameAndDept();
+    List<Map<String, Object>> getAllByNameAndDept(String studentname, String departmentname);
 
     boolean delStudent(int[] studentId);
 
