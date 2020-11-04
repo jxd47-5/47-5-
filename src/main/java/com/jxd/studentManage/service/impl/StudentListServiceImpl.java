@@ -42,6 +42,46 @@ public class StudentListServiceImpl extends ServiceImpl<IStudentListMapper, Stud
     }
 
     @Override
+    public List<Map<String, Object>> getAllTeacher() {
+        return studentListMapper.getAllTeacher();
+    }
+
+    @Override
+    public List<Map<String, Object>> getAllTeacherByName(String teachername) {
+        return studentListMapper.getAllTeacherByName(teachername);
+    }
+
+    @Override
+    public List<Map<String, Object>> getAllTeacherByDept(String departmentname) {
+        return studentListMapper.getAllTeacherByDept(departmentname);
+    }
+
+    @Override
+    public List<Map<String, Object>> getAllTeacherByNameAndDept(String teachername, String departmentname) {
+        return studentListMapper.getAllTeacherByNameAndDept(teachername, departmentname);
+    }
+
+    @Override
+    public List<Map<String, Object>> getAllManager() {
+        return studentListMapper.getAllManager();
+    }
+
+    @Override
+    public List<Map<String, Object>> getAllManagerByName(String managername) {
+        return studentListMapper.getAllTeacherByName(managername);
+    }
+
+    @Override
+    public List<Map<String, Object>> getAllManagerByDept(String departmentname) {
+        return studentListMapper.getAllManagerByDept(departmentname);
+    }
+
+    @Override
+    public List<Map<String, Object>> getAllManagerByNameAndDept(String managername, String departmentname) {
+        return studentListMapper.getAllTeacherByNameAndDept(managername, departmentname);
+    }
+
+    @Override
     public boolean delStudent(int[] studentId) {
         return studentListMapper.delStudent(studentId);
     }
