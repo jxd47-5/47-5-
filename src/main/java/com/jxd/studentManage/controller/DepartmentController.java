@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.validation.Path;
 import java.util.List;
 
 /**
@@ -90,5 +91,16 @@ public class DepartmentController {
 
 
         return departmentService.selectAllDepartment(departmentname);
+    }
+    @RequestMapping("addDuty/{departmentName}")
+    @ResponseBody
+    public String addDuty(@PathVariable("departmentName") String dname){
+        String id = departmentService.selectDepartmentId(dname);
+        int id_int = Integer.parseInt(id);
+        if(departmentService.addDuty(id_int)){
+            return "success";
+        }else {return "error";
+        }
+
     }
 }

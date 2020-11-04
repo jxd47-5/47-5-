@@ -10,4 +10,6 @@ public interface IDepartmentMapper extends BaseMapper<Department> {
     boolean addDepartment(String departmentName,String status);
     boolean editDepartment(int departmentId,String departmentName,String status);
     List<Department> selectAllDepartment(String departmentName);
+    String selectDepartmentId(String dname);
+    Boolean addDuty(int id);
 }

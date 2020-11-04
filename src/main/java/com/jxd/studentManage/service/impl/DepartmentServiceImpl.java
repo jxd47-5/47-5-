@@ -39,4 +39,14 @@ public class DepartmentServiceImpl extends ServiceImpl<IDepartmentMapper, Depart
     public List<Department> selectAllDepartment(String departmentName) {
         return departmentMapper.selectAllDepartment(departmentName);
     }
+
+    @Override
+    public String selectDepartmentId(String dname) {
+        return departmentMapper.selectDepartmentId(dname);
+    }
+
+    @Override
+    public Boolean addDuty(int id) {
+        return departmentMapper.addDuty(id);
+    }
 }

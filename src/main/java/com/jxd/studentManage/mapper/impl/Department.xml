@@ -16,4 +16,10 @@
         select * from department
         where departmentname like concat("%",#{departmentName},"%")
     </select>
+    <select id="selectDepartmentId" resultType="java.lang.String">
+        select departmentid from department where departmentname = #{dname}
+    </select>
+    <insert id="addDuty" parameterType="java.lang.Integer">
+        insert into duty(dutyname,departmentid) values('经理',#{id}),('员工',#{id})
+    </insert>
 </mapper>

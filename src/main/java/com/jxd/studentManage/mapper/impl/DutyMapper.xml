@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace接口的全路径，用于关联dao层接口-->
+<mapper namespace="com.jxd.studentManage.mapper.IDutyMapper">
+    <select id="getAllDuty" resultType="java.util.Map">
+        select d1.*,d2.departmentname from duty d1 LEFT JOIN department d2 ON d1.departmentid = d2.departmentid
+    </select>
+    <select id="selectAllDutyByDepartment" resultType="java.util.Map">
+        select d1.*,d2.departmentname from  duty d1  LEFT JOIN department d2 ON d1.departmentid = d2.departmentid
+        where d1.departmentid = #{departmentId}
+    </select>
+    <select id="selectAllDutyByDutyName" resultType="java.util.Map">
+        select d1.*,d2.departmentname from  duty d1  LEFT JOIN department d2 ON d1.departmentid = d2.departmentid
+        where d1.dutyname like concat('%',#{dutyName},'%')
+    </select>
+    <select id="selectAllDutyByDutyNameAndDepartment" resultType="java.util.Map">
+        select d1.*,d2.departmentname from  duty d1  LEFT JOIN department d2 ON d1.departmentid = d2.departmentid
+        where d1.dutyname like concat('%',#{dutyName},'%') and d1.departmentid = #{departmentId}
+    </select>
+
+</mapper>
