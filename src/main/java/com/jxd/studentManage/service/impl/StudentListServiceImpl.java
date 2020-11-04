@@ -68,7 +68,7 @@ public class StudentListServiceImpl extends ServiceImpl<IStudentListMapper, Stud
 
     @Override
     public List<Map<String, Object>> getAllManagerByName(String managername) {
-        return studentListMapper.getAllTeacherByName(managername);
+        return studentListMapper.getAllManagerByName(managername);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class StudentListServiceImpl extends ServiceImpl<IStudentListMapper, Stud
 
     @Override
     public List<Map<String, Object>> getAllManagerByNameAndDept(String managername, String departmentname) {
-        return studentListMapper.getAllTeacherByNameAndDept(managername, departmentname);
+        return studentListMapper.getAllManagerByNameAndDept(managername, departmentname);
     }
 
     @Override
