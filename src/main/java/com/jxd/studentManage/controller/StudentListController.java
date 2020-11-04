@@ -47,5 +47,54 @@ public class StudentListController {
         return studentListService.getAllByNameAndDept(studentname, departmentname);
     }
 
+    @RequestMapping("/getAllTeacher")
+    @ResponseBody
+    public List<Map<String, Object>> getAllTeacher() {
+        return studentListService.getAllTeacher();
+    }
+
+    @RequestMapping("/getAllTeacherByName/{teachername}")
+    @ResponseBody
+    public List<Map<String, Object>> getAllTeacherByName(@PathVariable("teachername") String teachername) {
+        return studentListService.getAllTeacherByName(teachername);
+    }
+
+    @RequestMapping("/getAllTeacherByDept/{departmentname}")
+    @ResponseBody
+    public List<Map<String, Object>> getAllTeacherByDept(@PathVariable("departmentname") String departmentname) {
+        return studentListService.getAllTeacherByDept(departmentname);
+    }
+
+    @RequestMapping("/getAllTeacherByNameAndDept/{teachername}/{departmentname}")
+    @ResponseBody
+    public List<Map<String, Object>> getAllTeacherByNameAndDept(@PathVariable("teachername") String teachername,
+                                                                @PathVariable("departmentname")String departmentname) {
+        return studentListService.getAllTeacherByNameAndDept(teachername, departmentname);
+    }
+
+    @RequestMapping("/getAllManager")
+    @ResponseBody
+    public List<Map<String, Object>> getAllManager() {
+        return studentListService.getAllManager();
+    }
+
+    @RequestMapping("/getAllManagerByName/{managername}")
+    @ResponseBody
+    public List<Map<String, Object>> getAllManagerByName(@PathVariable("managername") String managername) {
+        return studentListService.getAllManagerByName(managername);
+    }
+
+    @RequestMapping("/getAllManagerByDept/{departmentname}")
+    @ResponseBody
+    public List<Map<String, Object>> getAllManagerByDept(@PathVariable("departmentname") String departmentname) {
+        return studentListService.getAllManagerByDept(departmentname);
+    }
+
+    @RequestMapping("/getAllManagerByNameAndDept/{managername}/{departmentname}")
+    @ResponseBody
+    public List<Map<String, Object>> getAllManagerByNameAndDept(@PathVariable("managername") String managername,
+                                                                @PathVariable("departmentname")String departmentname) {
+        return studentListService.getAllManagerByNameAndDept(managername, departmentname);
+    }
 
 }

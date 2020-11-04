@@ -4,14 +4,14 @@
 <mapper namespace="com.jxd.studentManage.mapper.IStudentListMapper">
     <!--默认显示查询全部员工数据-->
     <select id="getAllStudent" resultType="java.util.HashMap">
-        SELECT s.studentid,s.studentname,de.departmentname,du.dutyname
+        SELECT s.studentid id,s.studentname name,de.departmentname,du.dutyname
         FROM student s,department de,duty du
         where s.departmentid=de.departmentid
         and s.dutyid=du.dutyid
     </select>
 
     <select id="getAllStudentByName" resultType="java.util.HashMap">
-            select s.studentid,s.studentname,de.departmentname,du.dutyname
+            select s.studentid id,s.studentname name,de.departmentname,du.dutyname
             from student s
             LEFT JOIN department de ON s.departmentid = de.departmentid
             LEFT JOIN duty du ON s.dutyid = du.dutyid
@@ -19,20 +19,86 @@
     </select>
 
     <select id="getAllStudentByDept" resultType="java.util.HashMap">
-            select s.studentid,s.studentname,de.departmentname,du.dutyname
+            select s.studentid id,s.studentname name,de.departmentname,du.dutyname
             from student s
             LEFT JOIN department de ON s.departmentid = de.departmentid
             LEFT JOIN duty du ON s.dutyid = du.dutyid
             where de.departmentname like concat("%",#{departmentname},"%")
     </select>
 
-        <!--查询按钮-->
     <select id="getAllStudentByNameAndDept" resultType="java.util.HashMap">
-        select s.studentid,s.studentname,de.departmentname,du.dutyname
+        select s.studentid id,s.studentname name,de.departmentname,du.dutyname
         from student s
         LEFT JOIN department de ON s.departmentid = de.departmentid
         LEFT JOIN duty du ON de.departmentid = du.dutyid
         where s.studentname like concat("%",#{studentname},"%")
+        and de.departmentname like concat("%",#{departmentname},"%")
+    </select>
+
+    <!--老师-->
+    <select id="getAllTeacher" resultType="java.util.HashMap">
+        SELECT t.teacherid id,t.teachername name,de.departmentname,du.dutyname
+        FROM teacher t,department de,duty du
+        where t.departmentid=de.departmentid
+        and t.dutyid=du.dutyid
+    </select>
+
+    <select id="getAllTeacherByName" resultType="java.util.HashMap">
+            select t.teacherid id,t.teachername name,de.departmentname,du.dutyname
+            from teacher t
+            LEFT JOIN department de ON t.departmentid = de.departmentid
+            LEFT JOIN duty du ON t.dutyid = du.dutyid
+            where t.teachername like concat("%",#{teachername},"%")
+    </select>
+
+    <select id="getAllTeacherByDept" resultType="java.util.HashMap">
+            select t.teacherid id,t.teachername name,de.departmentname,du.dutyname
+            from teacher t
+            LEFT JOIN department de ON t.departmentid = de.departmentid
+            LEFT JOIN duty du ON t.dutyid = du.dutyid
+            where de.departmentname like concat("%",#{departmentname},"%")
+    </select>
+
+    <select id="getAllTeacherByNameAndDept" resultType="java.util.HashMap">
+        select t.teacherid id,t.teachername name,de.departmentname,du.dutyname
+        from teacher t
+        LEFT JOIN department de ON t.departmentid = de.departmentid
+        LEFT JOIN duty du ON de.departmentid = du.dutyid
+        where t.teachername like concat("%",#{teachername},"%")
+        and de.departmentname like concat("%",#{departmentname},"%")
+    </select>
+
+
+    <!--经理-->
+    <select id="getAllManager" resultType="java.util.HashMap">
+        SELECT m.managerid id,m.managername name,de.departmentname,du.dutyname
+        FROM manager m,department de,duty du
+        where m.departmentid=de.departmentid
+        and m.dutyid=du.dutyid
+    </select>
+
+    <select id="getAllManagerByName" resultType="java.util.HashMap">
+            select m.managerid id,m.managername name,de.departmentname,du.dutyname
+            from manager m
+            LEFT JOIN department de ON m.departmentid = de.departmentid
+            LEFT JOIN duty du ON m.dutyid = du.dutyid
+            where m.managername like concat("%",#{managername},"%")
+    </select>
+
+    <select id="getAllManagerByDept" resultType="java.util.HashMap">
+            select m.managerid id,m.managername name,de.departmentname,du.dutyname
+            from manager m
+            LEFT JOIN department de ON m.departmentid = de.departmentid
+            LEFT JOIN duty du ON m.dutyid = du.dutyid
+            where de.departmentname like concat("%",#{departmentname},"%")
+    </select>
+
+    <select id="getAllManagerByNameAndDept" resultType="java.util.HashMap">
+        select m.managerid id,m.managername name,de.departmentname,du.dutyname
+        from manager m
+        LEFT JOIN department de ON m.departmentid = de.departmentid
+        LEFT JOIN duty du ON de.departmentid = du.dutyid
+        where m.managername like concat("%",#{managername},"%")
         and de.departmentname like concat("%",#{departmentname},"%")
     </select>
 
