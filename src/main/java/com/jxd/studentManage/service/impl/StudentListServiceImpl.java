@@ -27,6 +27,16 @@ public class StudentListServiceImpl extends ServiceImpl<IStudentListMapper, Stud
     }
 
     @Override
+    public List<Map<String, Object>> getAllByName(String studentname) {
+        return studentListMapper.getAllStudentByName(studentname);
+    }
+
+    @Override
+    public List<Map<String, Object>> getAllByDept(String departmentname) {
+        return studentListMapper.getAllStudentByDept(departmentname);
+    }
+
+    @Override
     public List<Map<String, Object>> getAllByNameAndDept(String studentname, String departmentname) {
         return studentListMapper.getAllStudentByNameAndDept(studentname, departmentname);
     }

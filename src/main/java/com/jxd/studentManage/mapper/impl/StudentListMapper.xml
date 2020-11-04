@@ -10,22 +10,30 @@
         and s.dutyid=du.dutyid
     </select>
 
-    <!--查询按钮-->
+    <select id="getAllStudentByName" resultType="java.util.HashMap">
+            select s.studentid,s.studentname,de.departmentname,du.dutyname
+            from student s
+            LEFT JOIN department de ON s.departmentid = de.departmentid
+            LEFT JOIN duty du ON s.dutyid = du.dutyid
+            where s.studentname like concat("%",#{studentname},"%")
+    </select>
+
+    <select id="getAllStudentByDept" resultType="java.util.HashMap">
+            select s.studentid,s.studentname,de.departmentname,du.dutyname
+            from student s
+            LEFT JOIN department de ON s.departmentid = de.departmentid
+            LEFT JOIN duty du ON s.dutyid = du.dutyid
+            where de.departmentname like concat("%",#{departmentname},"%")
+    </select>
+
+        <!--查询按钮-->
     <select id="getAllStudentByNameAndDept" resultType="java.util.HashMap">
         select s.studentid,s.studentname,de.departmentname,du.dutyname
         from student s
         LEFT JOIN department de ON s.departmentid = de.departmentid
         LEFT JOIN duty du ON de.departmentid = du.dutyid
-
-
-        <where>
-            <if test="studentname != null and studentname != ''">
-                s.studentname like concat('%',#{studentname},'%')
-            </if>
-            <if test="departmentname != null and departmentname != ''">
-                and de.departmentname like concat('%',#{departmentname},'%')
-            </if>
-        </where>
+        where s.studentname like concat("%",#{studentname},"%")
+        and de.departmentname like concat("%",#{departmentname},"%")
     </select>
 
     <!--假删除-->

@@ -10,6 +10,10 @@ import java.util.Map;
 public interface IStudentListMapper extends BaseMapper<Student> {
     List<Map<String, Object>> getAllStudent();//默认查全部
 
+    List<Map<String, Object>> getAllStudentByName(@Param("studentname") String studentname);
+
+    List<Map<String, Object>> getAllStudentByDept(@Param("departmentname") String departmentname);
+
     List<Map<String, Object>> getAllStudentByNameAndDept
             (@Param("studentname") String studentname, @Param("departmentname") String departmentname);//查询按钮功能
 
