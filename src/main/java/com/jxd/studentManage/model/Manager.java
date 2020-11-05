@@ -14,6 +14,15 @@ public class Manager {
     private int managerId;
     private String managerName;
     private int departmentId;
+    private int dutyId;
+
+    public int getDutyId() {
+        return dutyId;
+    }
+
+    public void setDutyId(int dutyId) {
+        this.dutyId = dutyId;
+    }
 
     public int getManagerId() {
         return managerId;

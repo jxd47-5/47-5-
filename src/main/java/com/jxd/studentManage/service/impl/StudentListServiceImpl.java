@@ -92,7 +92,7 @@ public class StudentListServiceImpl extends ServiceImpl<IStudentListMapper, Stud
     }
 
     @Override
-    public Student insertStudent() {
+    public boolean insertStudent() {
         return studentListMapper.insertStudent();
     }
 }

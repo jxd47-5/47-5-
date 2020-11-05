@@ -97,4 +97,36 @@ public class StudentListController {
         return studentListService.getAllManagerByNameAndDept(managername, departmentname);
     }
 
+    @RequestMapping("/delStudent/{studentid}")
+    @ResponseBody
+    public String delStudent(@PathVariable("studentid") int[] studentId) {
+        if (studentListService.delStudent(studentId)) {
+            return "success";
+
+        } else {
+            return "error";
+        }
+    }
+
+    @RequestMapping("/updateStudent/{studentid}")
+    @ResponseBody
+    public String updateStudent(@PathVariable("studentid")int studentId) {
+        if (studentListService.updateStudent(studentId)) {
+            return "success";
+
+        } else {
+            return "error";
+        }
+    }
+
+    @RequestMapping("/addStudent")
+    @ResponseBody
+    public String addStudent() {
+        if (studentListService.insertStudent()) {
+            return "success";
+
+        } else {
+            return "error";
+        }
+    }
 }

@@ -15,10 +15,8 @@ public class Jobevaluation {
     private String evaluater;
     private String evaluation;
     private int score;
-    private String departmentName;
-    private int depatrtmentId;
-    private String dutyName;
-    private int dutyId;
+    private int studentId;
+    private int age;
 
     public int getJid() {
         return jid;
@@ -52,37 +50,19 @@ public class Jobevaluation {
         this.score = score;
     }
 
-    public String getDepartmentName() {
-        return departmentName;
+    public int getStudentId() {
+        return studentId;
     }
 
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
-    public int getDepatrtmentId() {
-        return depatrtmentId;
+    public int getAge() {
+        return age;
     }
 
-    public void setDepatrtmentId(int depatrtmentId) {
-        this.depatrtmentId = depatrtmentId;
+    public void setAge(int age) {
+        this.age = age;
     }
-
-    public String getDutyName() {
-        return dutyName;
-    }
-
-    public void setDutyName(String dutyName) {
-        this.dutyName = dutyName;
-    }
-
-    public int getDutyId() {
-        return dutyId;
-    }
-
-    public void setDutyId(int dutyId) {
-        this.dutyId = dutyId;
-    }
-
-
 }

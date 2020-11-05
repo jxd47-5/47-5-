@@ -35,5 +35,5 @@ public interface IStudentListService extends IService<Student> {
 
     boolean updateStudent(int studentId);
 
-    Student insertStudent();
+    boolean insertStudent();
 }

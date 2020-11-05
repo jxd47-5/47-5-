@@ -12,11 +12,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 public class Mark {
     @TableId
     private int markId;
-    private String ability;
-    private String positivity;
-    private String communication;
-    private String character;
-    private String nature;
+    private String markName;
 
     public int getMarkId() {
         return markId;
@@ -26,43 +22,11 @@ public class Mark {
         this.markId = markId;
     }
 
-    public String getAbility() {
-        return ability;
+    public String getMarkName() {
+        return markName;
     }
 
-    public void setAbility(String ability) {
-        this.ability = ability;
-    }
-
-    public String getPositivity() {
-        return positivity;
-    }
-
-    public void setPositivity(String positivity) {
-        this.positivity = positivity;
-    }
-
-    public String getCommunication() {
-        return communication;
-    }
-
-    public void setCommunication(String communication) {
-        this.communication = communication;
-    }
-
-    public String getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(String character) {
-        this.character = character;
-    }
-
-    public String getNature() {
-        return nature;
-    }
-
-    public void setNature(String nature) {
-        this.nature = nature;
+    public void setMarkName(String markName) {
+        this.markName = markName;
     }
 }

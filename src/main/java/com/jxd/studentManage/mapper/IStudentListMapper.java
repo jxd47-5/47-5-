@@ -41,5 +41,5 @@ public interface IStudentListMapper extends BaseMapper<Student> {
 
     boolean updateStudent(int studentId);
 
-    Student insertStudent();
+    boolean insertStudent();
 }

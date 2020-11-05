@@ -14,6 +14,15 @@ public class Teacher {
     private int teacherId;
     private String teacherName;
     private int departmentId;
+    private int dutyId;
+
+    public int getDutyId() {
+        return dutyId;
+    }
+
+    public void setDutyId(int dutyId) {
+        this.dutyId = dutyId;
+    }
 
     public int getTeacherId() {
         return teacherId;
