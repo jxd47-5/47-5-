@@ -40,4 +40,9 @@ public class CourseServiceImpl extends ServiceImpl<ICourseMapper, Course> implem
         return courseMapper.selectAllCourse(courseName);
     }
 
+    @Override
+    public List<Course> getCourseName() {
+        return courseMapper.getCourseName();
+    }
+
 }

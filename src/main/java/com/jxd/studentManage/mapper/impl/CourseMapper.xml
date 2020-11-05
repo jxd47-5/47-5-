@@ -16,4 +16,7 @@
         select * from course
         where coursename like concat("%",#{courseName},"%")
     </select>
+    <select id="getCourseName" resultType="Course">
+        select * from course where status = '启用';
+    </select>
 </mapper>

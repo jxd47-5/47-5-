@@ -10,5 +10,6 @@ public interface ICourseService extends IService<Course> {
     boolean addCourse(String courseName,String status);
     boolean editCourse(int courseId,String courseName,String status);
     List<Course> selectAllCourse(String courseName);
+    List<Course> getCourseName();
 
 }
