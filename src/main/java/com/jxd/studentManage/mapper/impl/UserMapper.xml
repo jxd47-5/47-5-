@@ -5,4 +5,22 @@
     <select id="getUser" resultType="User">
         select userid,username,password from user
     </select>
+    
+    <update id="resetPwd" parameterType="java.lang.Integer">
+        update User set password = '123' where userid = #{userId}
+    </update>
+
+    <select id="getUserByName" resultType="User">
+        select userid,username,password from User
+        where username like concat("%",#{userName},"%")
+    </select>
+
+    <select id="getPwd" resultType="User">
+        select userid,username,password from user where username = #{userName}
+    </select>
+
+    <update id="updatePwd" parameterType="java.lang.String">
+        update User set password = #{password} where username = #{userName}
+    </update>
+    
 </mapper>

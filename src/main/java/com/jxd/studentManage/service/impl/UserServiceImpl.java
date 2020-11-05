@@ -22,8 +22,32 @@ public class UserServiceImpl extends ServiceImpl<IUserMapper,User> implements IU
     private IUserMapper userMapper;
 
 
+
     @Override
     public List<User> getUser() {
         return userMapper.getUser();
     }
+
+    @Override
+    public boolean resetPwd(int userId) {
+        return userMapper.resetPwd(userId);
+    }
+
+    @Override
+    public List<User> getUserByName(String userName) {
+        return userMapper.getUserByName(userName);
+    }
+
+
+    @Override
+    public User getPwd(String userName) {
+        return userMapper.getPwd(userName);
+    }
+
+    @Override
+    public boolean updatePwd(String userName, String password) {
+        return userMapper.updatePwd(userName,password);
+    }
+
+
 }
