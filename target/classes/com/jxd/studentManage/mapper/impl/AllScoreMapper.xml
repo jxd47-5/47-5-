@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace接口的全路径，用于关联dao层接口-->
+<mapper namespace="com.jxd.studentManage.mapper.IAllScoreMapper">
+    <resultMap id="student" type="java.util.HashMap">
+        <id column="studentid" property="studentID"></id>
+        <result column="studentname" property="studentName"></result>
+        <result column="sex" property="sex"></result>
+        <result column="school" property="school"></result>
+        <result column="address" property="address"></result>
+    </resultMap>
+    <resultMap id="score" type="java.util.HashMap">
+        <result column="courseid" property="courseId"></result>
+        <result column="grade" property="grade"></result>
+        <result column="coursename" property="courseName"></result>
+    </resultMap>
+    <select id="getAllClass" resultType="Class">
+        select * from class
+    </select>
+    <select id="getCScore" resultMap="score">
+        select c.courseID,s.grade,c.coursename
+            from course c
+            left join grade s
+            on c.courseID=s.courseID
+            where s.studentID = #{StudentId}
+            group by c.courseID
+    </select>
+    <select id="getStudentByClassId" resultMap="student">
+        select studentID,studentName,sex,school,address from student where classID = #{classId} and isdelete = 0
+    </select>
+    <select id="getSScore" resultType="Sevaluation">
+        select score from sevaluation where studentID = #{StudentId}
+    </select>
+    <select id="getJScore" resultType="Jobevaluation">
+    select Score,Age from jobEvaluation where studentID = #{StudentId}
+    </select>
+
+
+</mapper>
