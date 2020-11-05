@@ -4,7 +4,7 @@
 <mapper namespace="com.jxd.studentManage.mapper.IStudentListMapper">
     <!--默认显示查询全部员工数据-->
     <select id="getAllStudent" resultType="java.util.HashMap">
-        SELECT s.studentid id,s.studentName,de.departmentname,du.dutyname
+        SELECT s.studentid id,s.studentname name,de.departmentname,du.dutyname
         FROM student s,department de,duty du
         where s.departmentid=de.departmentid
         and s.dutyid=du.dutyid
