@@ -1,6 +1,7 @@
 package com.jxd.studentManage.service.impl;
 
 import com.jxd.studentManage.mapper.IDutyMapper;
+import com.jxd.studentManage.model.Duty;
 import com.jxd.studentManage.service.IDutyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,4 +39,6 @@ public class DutyServiceImpl implements IDutyService {
     public List<Map<String, Object>> selectAllDutyByDutyNameAndDepartment(String dutyName, int departmentId) {
         return dutyMapper.selectAllDutyByDutyNameAndDepartment(dutyName,departmentId);
     }
+
+
 }

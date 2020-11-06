@@ -4,35 +4,37 @@
 <mapper namespace="com.jxd.studentManage.mapper.IStudentListMapper">
     <!--默认显示查询全部员工数据-->
     <select id="getAllStudent" resultType="java.util.HashMap">
-        SELECT s.studentid id,s.studentName,de.departmentname,du.dutyname
-        FROM student s,department de,duty du
+        SELECT s.*,de.departmentname,du.dutyname,c.classname
+        FROM student s,department de,duty du,class c
         where s.departmentid=de.departmentid
-        and s.dutyid=du.dutyid
+        and s.dutyid=du.dutyid and c.classid = s.classid and s.isdelete= 0
     </select>
 
     <select id="getAllStudentByName" resultType="java.util.HashMap">
-            select s.studentid id,s.studentname name,de.departmentname,du.dutyname
+            select s.*,de.departmentname,du.dutyname,c.classname
             from student s
             LEFT JOIN department de ON s.departmentid = de.departmentid
             LEFT JOIN duty du ON s.dutyid = du.dutyid
-            where s.studentname like concat("%",#{studentname},"%")
+            LEFT JOIN class c on c.classid = s.classid
+            where s.studentname like concat("%",#{studentname},"%") and s.isdelete=0
     </select>
 
     <select id="getAllStudentByDept" resultType="java.util.HashMap">
-            select s.studentid id,s.studentname name,de.departmentname,du.dutyname
+            select s.*,de.departmentname,du.dutyname,c.classname
             from student s
             LEFT JOIN department de ON s.departmentid = de.departmentid
             LEFT JOIN duty du ON s.dutyid = du.dutyid
-            where de.departmentname like concat("%",#{departmentname},"%")
+            LEFT JOIN class c on c.classid = s.classid
+            where de.departmentname like concat("%",#{departmentname},"%") and s.isdelete=0
     </select>
 
     <select id="getAllStudentByNameAndDept" resultType="java.util.HashMap">
-        select s.studentid id,s.studentname name,de.departmentname,du.dutyname
+        select s.*,de.departmentname,du.dutyname
         from student s
         LEFT JOIN department de ON s.departmentid = de.departmentid
         LEFT JOIN duty du ON de.departmentid = du.dutyid
         where s.studentname like concat("%",#{studentname},"%")
-        and de.departmentname like concat("%",#{departmentname},"%")
+        and de.departmentname like concat("%",#{departmentname},"%") and s.isdelete=0
     </select>
 
     <!--老师-->

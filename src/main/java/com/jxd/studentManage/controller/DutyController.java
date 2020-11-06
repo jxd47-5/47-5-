@@ -1,5 +1,6 @@
 package com.jxd.studentManage.controller;
 
+import com.jxd.studentManage.model.Duty;
 import com.jxd.studentManage.service.IDutyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,4 +42,5 @@ public class DutyController {
     public List<Map<String, Object>> selectAllDutyByDutyNameAndDepartment(@PathVariable("dutyName") String dutyName,@PathVariable("departmentId") int departmentId){
         return dutyService.selectAllDutyByDutyNameAndDepartment(dutyName,departmentId);
     };
+
 }

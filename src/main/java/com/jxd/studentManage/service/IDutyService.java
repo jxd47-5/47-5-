@@ -1,5 +1,6 @@
 package com.jxd.studentManage.service;
 
+import com.jxd.studentManage.model.Duty;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
