@@ -32,6 +32,12 @@ public class DepartmentController {
         return departmentService.getAllDepartment();
     }
 
+    @RequestMapping("/getDepartmentExceptTeacher")
+    @ResponseBody
+    public List<Department> getDepartmentExceptTeacher() {
+        return departmentService.getDepartmentExceptTeacher();
+    }
+
     @RequestMapping("/addDepartment/{departmentName}/{status}")
     @ResponseBody
     public String addDepartment(@PathVariable("departmentName") String departmentName, @PathVariable("status") String status) {

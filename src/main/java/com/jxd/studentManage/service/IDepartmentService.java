@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface IDepartmentService extends IService<Department> {
     List<Department> getAllDepartment();
+    List<Department> getDepartmentExceptTeacher();
     boolean addDepartment(String departmentName,String status);
     boolean editDepartment(int departmentId,String departmentName,String status);
     List<Department> selectAllDepartment(String departmentName);

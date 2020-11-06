@@ -26,6 +26,11 @@ public class DepartmentServiceImpl extends ServiceImpl<IDepartmentMapper, Depart
     }
 
     @Override
+    public List<Department> getDepartmentExceptTeacher() {
+        return departmentMapper.getDepartmentExceptTeacher();
+    }
+
+    @Override
     public boolean addDepartment(String departmentName, String status) {
         return departmentMapper.addDepartment(departmentName,status);
     }

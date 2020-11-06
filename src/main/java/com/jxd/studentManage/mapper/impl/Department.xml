@@ -6,6 +6,9 @@
     <select id="getAllDepartment" resultType="Department">
         select departmentid,departmentname,status from department
     </select>
+    <select id="getDepartmentExceptTeacher" resultType="Department">
+        select departmentid,departmentname,status from department where departmentid != '1'
+    </select>
     <insert id="addDepartment">
         insert into department(departmentname,status) values(#{departmentName},#{status})
     </insert>
