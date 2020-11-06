@@ -49,5 +49,10 @@ public class UserServiceImpl extends ServiceImpl<IUserMapper,User> implements IU
         return userMapper.updatePwd(userName,password);
     }
 
+    @Override
+    public List<String> getAllUser(String username) {
+        return userMapper.getAllUser(username);
+    }
+
 
 }

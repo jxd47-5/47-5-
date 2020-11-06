@@ -13,4 +13,5 @@ public interface IUserMapper extends BaseMapper<User> {
     List<User> getUserByName(String userName);//查询按钮功能
     User getPwd(String userName);
     boolean updatePwd(String userName,String password);
+    List<String> getAllUser(String username);
 }

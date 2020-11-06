@@ -22,5 +22,8 @@
     <update id="updatePwd" parameterType="java.lang.String">
         update User set password = #{password} where username = #{userName}
     </update>
+    <select id="getAllUser" resultType="java.lang.String">
+        select username from user
+    </select>
     
 </mapper>

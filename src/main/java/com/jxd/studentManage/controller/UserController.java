@@ -62,5 +62,16 @@ public class UserController {
             return "fail";
         }
     }
+    @RequestMapping("/getAllUser/{username}")
+    @ResponseBody
+    public String getAllUser(@PathVariable("username") String username){
+        List<String> list = userService.getAllUser(username);
+        for (String name:list){
+            if (username.equals(name)) {
+                return "success";
+            }
+        }
+        return "error";
+    }
 
 }

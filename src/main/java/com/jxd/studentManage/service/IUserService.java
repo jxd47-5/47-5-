@@ -12,4 +12,5 @@ public interface IUserService extends IService<User> {
     List<User> getUserByName(String userName);
     User getPwd(String userName);
     boolean updatePwd(String userName,String password);
+    List<String> getAllUser(String username);
 }
