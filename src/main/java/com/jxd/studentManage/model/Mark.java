@@ -13,6 +13,15 @@ public class Mark {
     @TableId
     private int markId;
     private String markName;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public int getMarkId() {
         return markId;

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace接口的全路径，用于关联dao层接口-->
+<mapper namespace="com.jxd.studentManage.mapper.ISEvaluationMapper">
+    <!--获取班期-->
+    <select id="getClassName" resultType="java.util.HashMap">
+        select  c.classname
+            from student s
+            left join
+            class c
+            on s.classid = c.classid
+            WHERE s.studentid = #{studentid}
+    </select>
+
+    <!--获取成绩-->
+    <select id="getOneStudentScore" resultType="java.util.HashMap">
+        select c.courseid,c.coursename,g.grade
+            from course c
+            left join grade g
+            on c.courseid=g.courseid
+            where g.studentid = #{studentid}
+            group by c.courseid
+    </select>
+
+    <!--获取整体评级成绩-->
+    <select id="getStudentEvaluation" resultType="java.util.HashMap">
+        select  se.evaluater,se.score,se.evaluation
+        from student s
+        left join
+        sevaluation se
+        on s.studentid = se.studentid
+        WHERE s.studentid = #{studentid}
+    </select>
+</mapper>

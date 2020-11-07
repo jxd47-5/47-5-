@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace接口的全路径，用于关联dao层接口-->
+<mapper namespace="com.jxd.studentManage.mapper.IJobEvaluationMapper">
+    <select id="getJobEvaluations" resultType="java.util.HashMap">
+        SELECT evaluater,score,evaluation FROM jobevaluation
+        WHERE studentid = #{studentid} and age = #{age}
+    </select>
+
+    <select id="getEachScore" resultType="java.util.HashMap">
+        select m.markname,p.jobmark,m.markid
+        from performence p
+        left join mark m
+        on p.markid = m.markid
+		left join jobevaluation j
+		on j.age = #{age}
+        where p.studentid = #{studentid} and j.age = #{age}
+    </select>
+</mapper>
