@@ -15,6 +15,15 @@ public class Grade {
     private int grade;
     private int courseId;
     private int studentId;
+    private int sid;
+
+    public int getSid() {
+        return sid;
+    }
+
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
 
     public int getGradeId() {
         return gradeId;

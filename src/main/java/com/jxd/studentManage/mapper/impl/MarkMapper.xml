@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace接口的全路径，用于关联dao层接口-->
+<mapper namespace="com.jxd.studentManage.mapper.IMarkMapper">
+
+    <select id="getAllMark" resultType="Mark">
+        select markid,markname,status from mark
+    </select>
+
+    <insert id="addMark">
+        insert into mark(markname,status) values(#{markname},#{status})
+    </insert>
+
+    <update id="editMark">
+        update mark set markname = #{markname},status = #{status} where markid = #{markid}
+    </update>
+
+    <select id="selectAllMark" resultType="Mark">
+        select markid,markname from mark
+        where markname like concat("%",#{markname},"%")
+    </select>
+    
+    <select id="getMarkName" resultType="Mark">
+        select markid,markname,status from mark where status = '启用';
+    </select>
+</mapper>

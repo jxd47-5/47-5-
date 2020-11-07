@@ -14,6 +14,24 @@ public class Performence {
     private int pid;
     private int score;
     private int markId;
+    private int studentId;
+    private int jobMark;
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public int getJobMark() {
+        return jobMark;
+    }
+
+    public void setJobMark(int jobMark) {
+        this.jobMark = jobMark;
+    }
 
     public int getPid() {
         return pid;
