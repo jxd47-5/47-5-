@@ -2,6 +2,7 @@ package com.jxd.studentManage.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jxd.studentManage.mapper.IStudentListMapper;
+import com.jxd.studentManage.model.Class;
 import com.jxd.studentManage.model.Student;
 import com.jxd.studentManage.service.IStudentListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,8 @@ import java.util.Map;
  * Date: 2020/10/30
  */
 @Service
-public class StudentListServiceImpl extends ServiceImpl<IStudentListMapper, Student> implements IStudentListService {
+public class StudentListServiceImpl extends ServiceImpl<IStudentListMapper, Student>
+        implements IStudentListService {
     @Autowired
     IStudentListMapper studentListMapper;
 
@@ -94,5 +96,39 @@ public class StudentListServiceImpl extends ServiceImpl<IStudentListMapper, Stud
     @Override
     public boolean insertStudent() {
         return studentListMapper.insertStudent();
+    }
+
+    @Override
+    public List<Class> getClass(String classname) {
+        return studentListMapper.getClass(classname);
+    }
+
+    @Override
+    public boolean addClass(String classname, int teacherid) {
+        return studentListMapper.addClass(classname,teacherid);
+    }
+
+    @Override
+    public boolean addStudent(Map<String, Object> map) {
+        if (studentListMapper.addStudentUser((String) map.get("studentName")) && studentListMapper.addStudent(map)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean editStudent(String oldstudentname,Map<String, Object> map) {
+        String newname =  (String)map.get("studentname");
+        if (studentListMapper.editStudent(map)&&studentListMapper.editStudentUser(oldstudentname,newname)){
+        return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean deleteStudent(int studentid) {
+        return studentListMapper.deleteStudent(studentid);
     }
 }

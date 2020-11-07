@@ -1,10 +1,12 @@
 package com.jxd.studentManage.controller;
 
+import com.jxd.studentManage.model.Class;
 import com.jxd.studentManage.model.Student;
 import com.jxd.studentManage.service.IStudentListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -37,7 +39,8 @@ public class StudentListController {
     @RequestMapping("/getAllStudentByDept/{departmentname}")
     @ResponseBody
     public List<Map<String, Object>> getAllStudentByDept(@PathVariable("departmentname") String departmentname) {
-        return studentListService.getAllByDept(departmentname);
+        List<Map<String, Object>> list = studentListService.getAllByDept(departmentname);
+        return list;
     }
 
     @RequestMapping("/getAllStudentByNameAndDept/{studentname}/{departmentname}")
@@ -121,12 +124,50 @@ public class StudentListController {
 
     @RequestMapping("/addStudent")
     @ResponseBody
-    public String addStudent() {
-        if (studentListService.insertStudent()) {
+    public String addStudent(@RequestBody Map<String,Object> map) {
+            if (studentListService.addStudent(map)) {
+                return "success";
+            }else {
+                return "error";
+            }
+    }
+    @RequestMapping("getClass/{classname}")
+    @ResponseBody
+    public String getClass(@PathVariable("classname") String classname){
+        List<Class> list = studentListService.getClass(classname);
+        for(Class cname :list){
+            if (classname.equals(cname.getClassName())){
+                return "success";
+            }
+        }
+        return "error";
+    }
+    @RequestMapping("addClass/{classname}/{teacherid}")
+    @ResponseBody
+    public String addClass(@PathVariable("classname") String classname,@PathVariable("teacherid") int teacherid){
+        if (studentListService.addClass(classname,teacherid)){
             return "success";
-
-        } else {
+        }else {
             return "error";
         }
     }
+    @RequestMapping("/editStudent/{oldstudentname}")
+    @ResponseBody
+    public  String editStudent (@PathVariable("oldstudentname") String oldstudentname,@RequestBody Map<String,Object> map){
+        if(studentListService.editStudent(oldstudentname,map)) {
+            return "success";
+        }else {
+            return "error";
+        }
+    }
+    @RequestMapping("/deleteStudent/{studentid}")
+    @ResponseBody
+    public String deleteStudent(@PathVariable("studentid") int studentid){
+        if (studentListService.deleteStudent(studentid)){
+            return "success";
+        }else {
+            return "error";
+        }
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.jxd.studentManage.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.jxd.studentManage.model.Class;
 import com.jxd.studentManage.model.Student;
 
 import java.util.List;
@@ -36,4 +37,14 @@ public interface IStudentListService extends IService<Student> {
     boolean updateStudent(int studentId);
 
     boolean insertStudent();
+
+    List<Class> getClass(String classname);
+
+    boolean addClass( String classname, int teacherid);
+
+    boolean addStudent( Map<String,Object> map);
+
+    boolean editStudent(String oldstudentname, Map<String,Object> map);
+
+    boolean deleteStudent( int studentid);
 }

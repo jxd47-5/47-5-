@@ -1,6 +1,7 @@
 package com.jxd.studentManage.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.jxd.studentManage.model.Class;
 import com.jxd.studentManage.model.Student;
 import org.apache.ibatis.annotations.Param;
 
@@ -42,4 +43,16 @@ public interface IStudentListMapper extends BaseMapper<Student> {
     boolean updateStudent(int studentId);
 
     boolean insertStudent();
+
+    List<Class> getClass(String classname);
+
+    boolean addClass( String classname, int teacherid);
+    //添加学生
+    boolean addStudent(@Param("map") Map<String,Object> map);
+    boolean addStudentUser(String username);
+    //修改学生
+    boolean editStudent(@Param("map") Map<String,Object> map);
+    boolean editStudentUser(@Param("oldstudentname") String oldstudentname,@Param("newname") String newname);
+    //删除学生
+    boolean deleteStudent( int studentid);
 }
