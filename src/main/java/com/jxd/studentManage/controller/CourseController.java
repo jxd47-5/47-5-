@@ -23,6 +23,10 @@ public class CourseController {
     @Autowired
     private ICourseService courseService;
 
+    /**
+     * 获得全部课程
+     * @return
+     */
     @RequestMapping("/getAllCourse")
     @ResponseBody
     public List<Course> getAllCourse() {
@@ -58,6 +62,13 @@ public class CourseController {
 
     }
 
+    /**
+     * 修改课程
+     * @param courseId 课程id
+     * @param courseName 课程名
+     * @param status 课程状态
+     * @return
+     */
     @RequestMapping("/editCourse/{courseId}/{name}/{status}")
     @ResponseBody
     public String editCourse(@PathVariable("courseId") int courseId ,@PathVariable("name") String courseName, @PathVariable("status") String status) {
@@ -72,6 +83,11 @@ public class CourseController {
 
     }
 
+    /**
+     * 通过名字查询课程是否重复
+     * @param name
+     * @return
+     */
     @RequestMapping("selectCourseName/{courseName}")
     @ResponseBody
     public String selectCourseName(@PathVariable("courseName") String name){
@@ -84,6 +100,12 @@ public class CourseController {
         return "error";
 
     }
+
+    /**
+     * 通过课程名查询课程
+     * @param coursename
+     * @return
+     */
     @RequestMapping("/selectAllCourse/{courseName}")
     @ResponseBody
     public List<Course> selectAllCourse(@PathVariable("courseName") String coursename) {

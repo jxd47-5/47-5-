@@ -3,19 +3,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace接口的全路径，用于关联dao层接口-->
 <mapper namespace="com.jxd.studentManage.mapper.ICourseMapper">
+    <!--查询课程-->
     <select id="getAllCourse" resultType="Course">
         select courseid,coursename,status from course
     </select>
+    <!--添加课程-->
     <insert id="addCourse">
         insert into course(coursename,status) values(#{courseName},#{status})
     </insert>
+    <!--修改课程-->
     <update id="editCourse">
         update course set coursename = #{courseName},status = #{status} where courseid = #{courseId}
     </update>
+    <!--通过名字查询-->
     <select id="selectAllCourse" resultType="Course">
         select * from course
         where coursename like concat("%",#{courseName},"%")
     </select>
+    <!--查询启用的课程-->
     <select id="getCourseName" resultType="Course">
         select * from course where status = '启用';
     </select>

@@ -22,7 +22,12 @@ public class LoginController {
     @Autowired
     private ILoginService loginService;
 
-
+    /**
+     * 查询用户是否存在和用户权限
+     * @param uname
+     * @param pwd
+     * @return
+     */
     @RequestMapping("/login/{uname}/{pwd}")
     @ResponseBody
     public int login(@PathVariable("uname") String uname,@PathVariable("pwd") String pwd){

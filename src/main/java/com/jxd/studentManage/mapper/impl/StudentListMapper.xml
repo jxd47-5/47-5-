@@ -109,13 +109,13 @@
     </select>
 
     <!--假删除-->
-    <update id="delStudent" parameterType="java.util.HashMap">
+    <!--<update id="delStudent" parameterType="java.util.HashMap">
         update student set isdelete=1 where studentid in(
         <foreach collection="array" item="studentId" separator=",">
             #{studentId}
         </foreach>
         )
-    </update>
+    </update>-->
 
     <!--修改-->
 
@@ -125,26 +125,30 @@
         insert into student (studentname,sex,nation,birthday,address,ismarried,tel,school,major,remark,idcard,dutyid,departmentid,classid,isdelete)
         values (#{map.studentName},#{map.sex},#{map.nation},#{map.birthday},#{map.address},#{map.isMarried},#{map.tel},#{map.school},#{map.major},#{map.remark},#{map.idcard},#{map.dutyname},#{map.departmentname},#{map.class},0)
     </insert>
+    <!--查询全部班期-->
     <select id="getClass" resultType="Class">
         select * from class;
     </select>
-
+<!--添加班期-->
     <insert id="addClass">
         insert into class(classname,teacherid ) values (#{classname},#{teacherid})
     </insert>
+    <!--添加用户表-->
     <insert id="addStudentUser" parameterType="java.lang.String" >
         insert into user(username,password,role) values (#{username},"123",0)
     </insert>
+    <!--删除-->
     <update id="deleteStudent" parameterType="java.lang.Integer">
         update student set isdelete = 1 where studentid = #{studentid}
     </update>
-
+<!--修改-->
     <update id="editStudent" parameterType="java.util.HashMap">
         update student set studentname=#{map.studentname},sex = #{map.sex},nation = #{map.nation},
         birthday = #{map.birthday},address=#{map.address},ismarried = #{map.ismarried},tel = #{map.tel},
         school = #{map.school},major = #{map.major},remark = #{map.remark},idcard = #{map.idcard},dutyid = #{map.dutyid},
         departmentid = #{map.departmentid},classid = #{map.classid} where studentid = #{map.studentid}
     </update>
+    <!--修改用户表-->
     <update id="editStudentUser" parameterType="java.lang.String">
         update user set username = #{newname} where username = #{oldstudentname}
     </update>

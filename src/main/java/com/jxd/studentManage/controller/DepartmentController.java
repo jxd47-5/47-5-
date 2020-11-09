@@ -22,6 +22,11 @@ import java.util.List;
 public class DepartmentController {
     @Autowired
     private IDepartmentService departmentService;
+
+    /**
+     * 获取全部部门
+     * @return
+     */
     @RequestMapping("/getAllDepartment")
     @ResponseBody
     public List<Department> getAllDepartment() {
@@ -32,12 +37,23 @@ public class DepartmentController {
         return departmentService.getAllDepartment();
     }
 
+    /**
+     * 获取除了培训学校外的所有部门
+     * @return
+     */
+
     @RequestMapping("/getDepartmentExceptTeacher")
     @ResponseBody
     public List<Department> getDepartmentExceptTeacher() {
         return departmentService.getDepartmentExceptTeacher();
     }
 
+    /**
+     * 添加部门
+     * @param departmentName
+     * @param status
+     * @return
+     */
     @RequestMapping("/addDepartment/{departmentName}/{status}")
     @ResponseBody
     public String addDepartment(@PathVariable("departmentName") String departmentName, @PathVariable("status") String status) {
@@ -62,7 +78,7 @@ public class DepartmentController {
 
 
     }
-
+    //修改部门
     @RequestMapping("/editDepartment/{departmentId}/{name}/{status}")
     @ResponseBody
     public String editDepartment(@PathVariable("departmentId") int departmentId ,@PathVariable("name") String departmentName, @PathVariable("status") String status) {
@@ -76,7 +92,7 @@ public class DepartmentController {
         }
 
     }
-
+    //查询部门名称是否存在
     @RequestMapping("selectDepartmentName/{departmentName}")
     @ResponseBody
     public String selectDepartmentName(@PathVariable("departmentName") String name){
@@ -89,6 +105,12 @@ public class DepartmentController {
         return "error";
 
     }
+
+    /**
+     * 通过部门名查询部门
+     * @param departmentname
+     * @return
+     */
     @RequestMapping("/selectAllDepartment/{departmentName}")
     @ResponseBody
     public List<Department> selectAllDepartment(@PathVariable("departmentName") String departmentname) {
@@ -98,6 +120,12 @@ public class DepartmentController {
 
         return departmentService.selectAllDepartment(departmentname);
     }
+
+    /**
+     * 在部门下添加职位
+     * @param dname
+     * @return
+     */
     @RequestMapping("addDuty/{departmentName}")
     @ResponseBody
     public String addDuty(@PathVariable("departmentName") String dname){

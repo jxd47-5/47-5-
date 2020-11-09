@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace接口的全路径，用于关联dao层接口-->
+<!--登录信息查询-->
 <mapper namespace="com.jxd.studentManage.mapper.ILoginMapper">
     <select id="getAllUser" resultType="User">
         select userid,username,password,role from user

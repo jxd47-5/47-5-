@@ -22,11 +22,22 @@ import java.util.Map;
 public class AllScoreController {
     @Autowired
     private IAllScoreService allScoreService;
+
+    /**
+     * 获取全部班期
+     * @return
+     */
     @RequestMapping("/getAllClass")
     @ResponseBody
     List<Class> getAllClass(){
         return allScoreService.getAllClass();
     }
+
+    /**
+     * 通过id查询学生信息
+     * @param classId
+     * @return
+     */
     @RequestMapping("/getStudentByClassId/{classId}")
     @ResponseBody
     List<Map<String,Object>> getStudentByClassId(@PathVariable("classId") int classId){

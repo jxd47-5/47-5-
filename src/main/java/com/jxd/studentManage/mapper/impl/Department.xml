@@ -3,25 +3,32 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace接口的全路径，用于关联dao层接口-->
 <mapper namespace="com.jxd.studentManage.mapper.IDepartmentMapper">
+    <!--查询部门-->
     <select id="getAllDepartment" resultType="Department">
         select departmentid,departmentname,status from department
     </select>
+    <!--查询除了培训学校的全部部门-->
     <select id="getDepartmentExceptTeacher" resultType="Department">
         select departmentid,departmentname,status from department where departmentid != '1'
     </select>
+    <!--添加部门-->
     <insert id="addDepartment">
         insert into department(departmentname,status) values(#{departmentName},#{status})
     </insert>
+    <!--修改部门-->
     <update id="editDepartment">
         update department set departmentname = #{departmentName},status = #{status} where departmentid = #{departmentId}
     </update>
+    <!--通过名字查询部门-->
     <select id="selectAllDepartment" resultType="Department">
         select * from department
         where departmentname like concat("%",#{departmentName},"%")
     </select>
+    <!--查询部门id-->
     <select id="selectDepartmentId" resultType="java.lang.String">
         select departmentid from department where departmentname = #{dname}
     </select>
+    <!--添加职务-->
     <insert id="addDuty" parameterType="java.lang.Integer">
         insert into duty(dutyname,departmentid) values('经理',#{id}),('员工',#{id})
     </insert>

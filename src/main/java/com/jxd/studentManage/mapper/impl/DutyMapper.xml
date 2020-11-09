@@ -3,17 +3,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace接口的全路径，用于关联dao层接口-->
 <mapper namespace="com.jxd.studentManage.mapper.IDutyMapper">
+    <!--查询部门名和植物-->
     <select id="getAllDuty" resultType="java.util.Map">
         select d1.*,d2.departmentname from duty d1 LEFT JOIN department d2 ON d1.departmentid = d2.departmentid
     </select>
+    <!--通过部门查植物-->
     <select id="selectAllDutyByDepartment" resultType="java.util.Map">
         select d1.*,d2.departmentname from  duty d1  LEFT JOIN department d2 ON d1.departmentid = d2.departmentid
         where d1.departmentid = #{departmentId}
     </select>
+    <!--通过职务名查全部信息-->
     <select id="selectAllDutyByDutyName" resultType="java.util.Map">
         select d1.*,d2.departmentname from  duty d1  LEFT JOIN department d2 ON d1.departmentid = d2.departmentid
         where d1.dutyname like concat('%',#{dutyName},'%')
     </select>
+    <!--通过部门名和职务名查询-->
     <select id="selectAllDutyByDutyNameAndDepartment" resultType="java.util.Map">
         select d1.*,d2.departmentname from  duty d1  LEFT JOIN department d2 ON d1.departmentid = d2.departmentid
         where d1.dutyname like concat('%',#{dutyName},'%') and d1.departmentid = #{departmentId}
