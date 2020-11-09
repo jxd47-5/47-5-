@@ -23,19 +23,32 @@ public class StudentListController {
     @Autowired
     IStudentListService studentListService;
 
-
+    /**
+     * 获取全部学生
+     * @return
+     */
     @RequestMapping("/getAllStudent")
     @ResponseBody
     public List<Map<String, Object>> getAllStudent() {
         return studentListService.getAll();
     }
 
+    /**
+     * 通过姓名查询学生
+     * @param studentname
+     * @return
+     */
     @RequestMapping("/getAllStudentByName/{studentname}")
     @ResponseBody
     public List<Map<String, Object>> getAllStudentByName(@PathVariable("studentname") String studentname) {
         return studentListService.getAllByName(studentname);
     }
 
+    /**
+     * 通过部门查询学生
+     * @param departmentname
+     * @return
+     */
     @RequestMapping("/getAllStudentByDept/{departmentname}")
     @ResponseBody
     public List<Map<String, Object>> getAllStudentByDept(@PathVariable("departmentname") String departmentname) {
@@ -43,6 +56,12 @@ public class StudentListController {
         return list;
     }
 
+    /**
+     * 通过姓名和部门查询学生
+     * @param studentname
+     * @param departmentname
+     * @return
+     */
     @RequestMapping("/getAllStudentByNameAndDept/{studentname}/{departmentname}")
     @ResponseBody
     public List<Map<String, Object>> getAllStudentByNameAndDept(@PathVariable("studentname") String studentname,
@@ -129,7 +148,7 @@ public class StudentListController {
         return studentListService.getAllManagerByNameAndDept(managername, departmentname);
     }
 
-    @RequestMapping("/delStudent/{studentid}")
+    /*@RequestMapping("/delStudent/{studentid}")
     @ResponseBody
     public String delStudent(@PathVariable("studentid") int[] studentId) {
         if (studentListService.delStudent(studentId)) {
@@ -138,9 +157,9 @@ public class StudentListController {
         } else {
             return "error";
         }
-    }
+    }*/
 
-    @RequestMapping("/updateStudent/{studentid}")
+    /*@RequestMapping("/updateStudent/{studentid}")
     @ResponseBody
     public String updateStudent(@PathVariable("studentid")int studentId) {
         if (studentListService.updateStudent(studentId)) {
@@ -149,8 +168,13 @@ public class StudentListController {
         } else {
             return "error";
         }
-    }
+    }*/
 
+    /**
+     * 添加学生
+     * @param map
+     * @return
+     */
     @RequestMapping("/addStudent")
     @ResponseBody
     public String addStudent(@RequestBody Map<String,Object> map) {
@@ -160,6 +184,12 @@ public class StudentListController {
                 return "error";
             }
     }
+
+    /**
+     * 获得班期
+     * @param classname
+     * @return
+     */
     @RequestMapping("getClass/{classname}")
     @ResponseBody
     public String getClass(@PathVariable("classname") String classname){
@@ -171,6 +201,13 @@ public class StudentListController {
         }
         return "error";
     }
+
+    /**
+     * 添加班期
+     * @param classname
+     * @param teacherid
+     * @return
+     */
     @RequestMapping("addClass/{classname}/{teacherid}")
     @ResponseBody
     public String addClass(@PathVariable("classname") String classname,@PathVariable("teacherid") int teacherid){
@@ -180,6 +217,13 @@ public class StudentListController {
             return "error";
         }
     }
+
+    /**
+     * 修改学生
+     * @param oldstudentname
+     * @param map
+     * @return
+     */
     @RequestMapping("/editStudent/{oldstudentname}")
     @ResponseBody
     public  String editStudent (@PathVariable("oldstudentname") String oldstudentname,@RequestBody Map<String,Object> map){
@@ -189,10 +233,16 @@ public class StudentListController {
             return "error";
         }
     }
-    @RequestMapping("/deleteStudent/{studentid}")
+
+    /**
+     * 删除学生
+     * @param studentname
+     * @return
+     */
+    @RequestMapping("/deleteStudent/{studentname}")
     @ResponseBody
-    public String deleteStudent(@PathVariable("studentid") int studentid){
-        if (studentListService.deleteStudent(studentid)){
+    public String deleteStudent(@PathVariable("studentname") String  studentname){
+        if (studentListService.deleteStudent(studentname)){
             return "success";
         }else {
             return "error";

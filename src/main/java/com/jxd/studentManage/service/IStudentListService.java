@@ -47,7 +47,7 @@ public interface IStudentListService extends IService<Student> {
 
     boolean editStudent(String oldstudentname, Map<String,Object> map);
 
-    boolean deleteStudent( int studentid);
+    boolean deleteStudent( String studentname);
 
     //添加老师
     boolean insertTeacher(String teacherName);

@@ -135,8 +135,11 @@ public class StudentListServiceImpl extends ServiceImpl<IStudentListMapper, Stud
     }
 
     @Override
-    public boolean deleteStudent(int studentid) {
-        return studentListMapper.deleteStudent(studentid);
+    public boolean deleteStudent(String studentname) {
+        if (studentListMapper.deleteStudent(studentname)&&studentListMapper.deleteStudentUser(studentname)){
+        return true;}else {
+            return false;
+        }
     }
 
 
@@ -171,7 +174,8 @@ public class StudentListServiceImpl extends ServiceImpl<IStudentListMapper, Stud
     //添加经理
     @Override
     public boolean insertManager(String managerName, int departmentId) {
-        if(studentListMapper.insertManager(managerName,departmentId) && studentListMapper.insertManagerUser(managerName)){
+        if(studentListMapper.insertManager(managerName,departmentId) &&
+                studentListMapper.insertManagerUser(managerName)){
             return true;
         }else {
             return false;

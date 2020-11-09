@@ -54,7 +54,8 @@ public interface IStudentListMapper extends BaseMapper<Student> {
     boolean editStudent(@Param("map") Map<String,Object> map);
     boolean editStudentUser(@Param("oldstudentname") String oldstudentname,@Param("newname") String newname);
     //删除学生
-    boolean deleteStudent( int studentid);
+    boolean deleteStudent( String studentname);
+    boolean deleteStudentUser(String studentname);
 
     //添加老师
     boolean insertTeacher(String teacherName);

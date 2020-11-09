@@ -3,6 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace接口的全路径，用于关联dao层接口-->
 <mapper namespace="com.jxd.studentManage.mapper.IAllScoreMapper">
+
     <resultMap id="student" type="java.util.HashMap">
         <id column="studentid" property="studentID"></id>
         <result column="studentname" property="studentName"></result>
@@ -18,6 +19,7 @@
     <select id="getAllClass" resultType="Class">
         select * from class
     </select>
+    <!--课程成绩-->
     <select id="getCScore" resultMap="score">
         select c.courseID,s.grade,c.coursename
             from course c
@@ -26,12 +28,15 @@
             where s.studentID = #{StudentId}
             group by c.courseID
     </select>
+    <!--学生信息-->
     <select id="getStudentByClassId" resultMap="student">
         select studentID,studentName,sex,school,address from student where classID = #{classId} and isdelete = 0
     </select>
+    <!--学校评价-->
     <select id="getSScore" resultType="Sevaluation">
         select score from sevaluation where studentID = #{StudentId}
     </select>
+    <!--工作评价-->
     <select id="getJScore" resultType="Jobevaluation">
     select Score,Age from jobEvaluation where studentID = #{StudentId}
     </select>
