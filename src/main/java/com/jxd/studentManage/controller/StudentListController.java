@@ -284,13 +284,13 @@ public class StudentListController {
 
     /**
      * 删除老师
-     * @param teacherId
+     * @param teacherName
      * @return
      */
-    @RequestMapping("/deleteTeacher/{teacherId}")
+    @RequestMapping("/deleteTeacher/{teacherName}")
     @ResponseBody
-    public String deleteTeacher(@PathVariable("teacherId") int teacherId){
-        if (studentListService.deleteTeacher(teacherId)){
+    public String deleteTeacher(@PathVariable("teacherName") String teacherName){
+        if (studentListService.deleteTeacher(teacherName)){
             return "success";
         }else {
             return "error";
@@ -333,13 +333,13 @@ public class StudentListController {
 
     /**
      * 删除经理
-     * @param managerId
+     * @param managerName
      * @return
      */
-    @RequestMapping("/deleteManager/{managerId}")
+    @RequestMapping("/deleteManager/{managerName}")
     @ResponseBody
-    public String deleteManager(@PathVariable("managerId") int managerId){
-        if (studentListService.deleteManager(managerId)){
+    public String deleteManager(@PathVariable("managerName") String managerName){
+        if (studentListService.deleteManager(managerName)){
             return "success";
         }else {
             return "error";

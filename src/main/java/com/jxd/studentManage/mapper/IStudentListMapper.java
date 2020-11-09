@@ -66,7 +66,9 @@ public interface IStudentListMapper extends BaseMapper<Student> {
     //修改用户表老师
     boolean updateTeacherUser(String oldTeacherName,String userName);
     //删除老师
-    boolean deleteTeacher( int teacherId);
+    boolean deleteTeacher( String teacherName);
+    //删除用户表老师
+    boolean deleteTeacherUser(String teacherName);
 
     //添加经理
     boolean insertManager(String managerName,int departmentId);
@@ -77,5 +79,6 @@ public interface IStudentListMapper extends BaseMapper<Student> {
     //修改用户表经理
     boolean updateManagerUser(String oldManagerName,String userName);
     //删除经理
-    boolean deleteManager( int managerId);
+    boolean deleteManager( String managerName);
+    boolean deleteManagerUser( String managerName);
 }

@@ -39,18 +39,17 @@
 
     <!--默认显示查询全部老师-->
     <select id="getAllTeacher" resultType="java.util.HashMap">
-        SELECT t.teacherid id,t.teachername name,de.departmentname,du.dutyname
-        FROM teacher t,department de,duty du
+        SELECT t.teacherid id,t.teachername name,de.departmentname
+        FROM teacher t,department de
         where t.departmentid=de.departmentid
-        and t.dutyid=du.dutyid and t.isdelete = 0
+        and t.isdelete = 0
     </select>
 
     <!--根据姓名查询老师-->
     <select id="getAllTeacherByName" resultType="java.util.HashMap">
-            select t.teacherid id,t.teachername name,de.departmentname,du.dutyname
+            select t.teacherid id,t.teachername name,de.departmentname
             from teacher t
             LEFT JOIN department de ON t.departmentid = de.departmentid
-            LEFT JOIN duty du ON t.dutyid = du.dutyid
             where t.teachername like concat("%",#{teachername},"%") and t.isdelete = 0
     </select>
 
@@ -74,36 +73,33 @@
 
     <!--默认查询全部经理-->
     <select id="getAllManager" resultType="java.util.HashMap">
-        SELECT m.managerid id,m.managername name,de.departmentname,du.dutyname
-        FROM manager m,department de,duty du
+        SELECT m.managerid id,m.managername name,de.departmentname
+        FROM manager m,department de
         where m.departmentid=de.departmentid
-        and m.dutyid=du.dutyid and m.isdelete = 0
+        and m.isdelete = 0
     </select>
 
     <!--根据姓名查询经理-->
     <select id="getAllManagerByName" resultType="java.util.HashMap">
-            select m.managerid id,m.managername name,de.departmentname,du.dutyname
+            select m.managerid id,m.managername name,de.departmentname
             from manager m
             LEFT JOIN department de ON m.departmentid = de.departmentid
-            LEFT JOIN duty du ON m.dutyid = du.dutyid
             where m.managername like concat("%",#{managername},"%") and m.isdelete = 0
     </select>
 
     <!--根据部门查询经理-->
     <select id="getAllManagerByDept" resultType="java.util.HashMap">
-            select m.managerid id,m.managername name,de.departmentname,du.dutyname
+            select m.managerid id,m.managername name,de.departmentname
             from manager m
             LEFT JOIN department de ON m.departmentid = de.departmentid
-            LEFT JOIN duty du ON m.dutyid = du.dutyid
             where de.departmentname like concat("%",#{departmentname},"%") and m.isdelete = 0
     </select>
 
     <!--根据姓名和部门查询经理-->
     <select id="getAllManagerByNameAndDept" resultType="java.util.HashMap">
-        select m.managerid id,m.managername name,de.departmentname,du.dutyname
+        select m.managerid id,m.managername name,de.departmentname
         from manager m
         LEFT JOIN department de ON m.departmentid = de.departmentid
-        LEFT JOIN duty du ON de.departmentid = du.dutyid
         where m.managername like concat("%",#{managername},"%")
         and de.departmentname like concat("%",#{departmentname},"%") and m.isdelete = 0
     </select>
@@ -160,9 +156,9 @@
     <!--添加老师-->
     <insert id="insertTeacher">
         insert into teacher
-        (teachername,departmentid,dutyid,isdelete)
+        (teachername,departmentid,isdelete)
         values
-        (#{teacherName},'1','1','0')
+        (#{teacherName},'1','0')
     </insert>
 
     <!--添加老师到用户表-->
@@ -181,16 +177,19 @@
     </update>
 
     <!--删除老师-->
-    <update id="deleteTeacher" parameterType="java.lang.Integer">
-        update teacher set isdelete = 1 where teacherid = #{teacherId}
+    <update id="deleteTeacher" parameterType="java.lang.String">
+        update teacher set isdelete = 1 where teachername = #{teacherName}
+    </update>
+    <update id="deleteTeacherUser" parameterType="java.lang.String">
+        delete from user where username = #{teacherName}
     </update>
 
     <!--添加经理-->
     <insert id="insertManager">
         insert into manager
-        (managername,departmentid,dutyid,isdelete)
+        (managername,departmentid,isdelete)
         values
-        (#{managerName,},#{departmentId},'2','0')
+        (#{managerName,},#{departmentId},'0')
     </insert>
 
     <!--添加经理到用户表-->
@@ -209,8 +208,11 @@
     </update>
 
     <!--删除经理-->
-    <update id="deleteManager" parameterType="java.lang.Integer">
-        update manager set isdelete = 1 where managerid = #{managerId}
+    <update id="deleteManager" parameterType="java.lang.String">
+        update manager set isdelete = 1 where managername = #{managerName}
+    </update>
+    <update id="deleteManagerUser" parameterType="java.lang.String">
+        delete from user where username = #{managerName}
     </update>
 
 </mapper>

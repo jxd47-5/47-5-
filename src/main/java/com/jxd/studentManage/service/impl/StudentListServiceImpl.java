@@ -167,8 +167,12 @@ public class StudentListServiceImpl extends ServiceImpl<IStudentListMapper, Stud
 
     //删除老师
     @Override
-    public boolean deleteTeacher(int teacherId) {
-        return studentListMapper.deleteTeacher(teacherId);
+    public boolean deleteTeacher(String teacherName) {
+        if(studentListMapper.deleteTeacher(teacherName) && studentListMapper.deleteTeacherUser(teacherName)){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     //添加经理
@@ -196,8 +200,12 @@ public class StudentListServiceImpl extends ServiceImpl<IStudentListMapper, Stud
 
     //删除经理
     @Override
-    public boolean deleteManager(int managerId) {
-        return studentListMapper.deleteManager(managerId);
+    public boolean deleteManager(String managerName) {
+        if(studentListMapper.deleteManager(managerName) && studentListMapper.deleteManagerUser(managerName)){
+            return true;
+        }else {
+            return false;
+        }
     }
 
 
