@@ -2,26 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jxd.studentManage.mapper.IUserMapper">
+    <!--查询全部用户-->
     <select id="getUser" resultType="User">
         select userid,username,password from user
     </select>
-    
+
+    <!--重置密码-->
     <update id="resetPwd" parameterType="java.lang.Integer">
         update User set password = '123' where userid = #{userId}
     </update>
 
+    <!--通过姓名查询用户-->
     <select id="getUserByName" resultType="User">
         select userid,username,password from User
         where username like concat("%",#{userName},"%")
     </select>
 
+    <!--得到当前行的密码-->
     <select id="getPwd" resultType="User">
         select userid,username,password from user where username = #{userName}
     </select>
 
+    <!--修改密码-->
     <update id="updatePwd" parameterType="java.lang.String">
         update User set password = #{password} where username = #{userName}
     </update>
+
+    <!--查询所有名字-->
     <select id="getAllUser" resultType="java.lang.String">
         select username from user
     </select>

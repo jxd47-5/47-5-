@@ -156,9 +156,9 @@
     <!--添加老师-->
     <insert id="insertTeacher">
         insert into teacher
-        (teachername,departmentid,dutyid)
+        (teachername,departmentid,dutyid,isdelete)
         values
-        (#{teacherName},'1','1')
+        (#{teacherName},'1','1','0')
     </insert>
 
     <!--添加老师到用户表-->
@@ -184,9 +184,9 @@
     <!--添加经理-->
     <insert id="insertManager">
         insert into manager
-        (managername,departmentid,dutyid)
+        (managername,departmentid,dutyid,isdelete)
         values
-        (#{managerName,},#{departmentId},'2')
+        (#{managerName,},#{departmentId},'2','0')
     </insert>
 
     <!--添加经理到用户表-->
