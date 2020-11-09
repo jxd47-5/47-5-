@@ -208,5 +208,10 @@ public class StudentListServiceImpl extends ServiceImpl<IStudentListMapper, Stud
         }
     }
 
+    @Override
+    public Student selectIdByName(String studentname) {
+        return studentListMapper.selectIdByName(studentname);
+    }
+
 
 }

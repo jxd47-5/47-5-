@@ -153,6 +153,8 @@
         update user set username = #{newname} where username = #{oldstudentname}
     </update>
 
+
+
     <!--添加老师-->
     <insert id="insertTeacher">
         insert into teacher
@@ -214,5 +216,10 @@
     <update id="deleteManagerUser" parameterType="java.lang.String">
         delete from user where username = #{managerName}
     </update>
+
+    <!--根据姓名查id-->
+    <select id="selectIdByName" resultType="Student">
+        select studentid from student where studentname = #{studentname}
+    </select>
 
 </mapper>

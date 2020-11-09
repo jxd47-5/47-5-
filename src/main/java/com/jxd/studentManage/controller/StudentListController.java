@@ -345,4 +345,15 @@ public class StudentListController {
             return "error";
         }
     }
+
+    /**
+     * 根据姓名查id
+     * @param stidentname
+     * @return
+     */
+    @RequestMapping("/selectIdByName/{studentname}")
+    @ResponseBody
+    public Student selectIdByName(@PathVariable("studentname") String stidentname){
+        return studentListService.selectIdByName(stidentname);
+    }
 }

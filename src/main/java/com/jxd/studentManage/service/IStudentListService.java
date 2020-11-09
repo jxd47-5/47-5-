@@ -49,6 +49,8 @@ public interface IStudentListService extends IService<Student> {
 
     boolean deleteStudent( String studentname);
 
+
+
     //添加老师
     boolean insertTeacher(String teacherName);
     //修改老师
@@ -65,4 +67,6 @@ public interface IStudentListService extends IService<Student> {
     boolean updateManagerUser(String oldManagerName,String userName);
     //删除经理
     boolean deleteManager( String managerName);
+
+    Student selectIdByName(String studentname);
 }
