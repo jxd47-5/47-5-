@@ -34,4 +34,19 @@ public class SEvaluationServiceImpl implements ISEvaluationService {
 
         return list;
     }
+
+    @Override
+    public List<Map<String, Object>> getOneStudentScore(int studentid) {
+        return isEvaluationMapper.getOneStudentScore(studentid);
+    }
+
+    @Override
+    public boolean setScore(int studentid) {
+        return isEvaluationMapper.setScore(studentid);
+    }
+
+    @Override
+    public boolean setEva(String evaluation, String studentname) {
+        return isEvaluationMapper.setEva(evaluation, studentname);
+    }
 }

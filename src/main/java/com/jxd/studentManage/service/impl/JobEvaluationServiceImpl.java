@@ -24,7 +24,7 @@ public class JobEvaluationServiceImpl implements IJobEvaluationService {
             List<Map<String,Object>> listScore = jobEvaluationMapper.getEachScore(studentid, age);
             if (listScore != null){
                 for (Map<String,Object> m: listScore) {
-                    map.put((String) m.get("markname"),m.get("jobmark"));
+                    map.put((String) m.get("markname"),m.get("score"));
 
                 }
             }
@@ -33,5 +33,10 @@ public class JobEvaluationServiceImpl implements IJobEvaluationService {
 
 
         return list;
+    }
+
+    @Override
+    public boolean setJobEva(int studentid, String evaluation, int age) {
+        return jobEvaluationMapper.setJobEva(studentid, evaluation, age);
     }
 }

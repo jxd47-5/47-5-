@@ -9,12 +9,16 @@
     </select>
 
     <select id="getEachScore" resultType="java.util.HashMap">
-        select m.markname,p.jobmark,m.markid
+        select m.markname,p.score,m.markid
         from performence p
         left join mark m
         on p.markid = m.markid
 		left join jobevaluation j
 		on j.age = #{age}
-        where p.studentid = #{studentid} and j.age = #{age}
+        where p.studentid = #{studentid}
     </select>
+
+    <update id="setJobEvaluations">
+        update jobevaluation set evaluation = #{evaluation} where studentid = #{studentid} and age = #{age}
+    </update>
 </mapper>

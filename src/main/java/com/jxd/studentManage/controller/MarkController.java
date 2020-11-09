@@ -71,7 +71,6 @@ public class MarkController {
     @RequestMapping("/selectAllMark/{markname}")
     @ResponseBody
     public List<Mark> selectAllMark(@PathVariable("markname") String markname) {
-
         return markService.selectAllMark(markname);
     }
 

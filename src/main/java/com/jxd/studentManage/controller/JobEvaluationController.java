@@ -22,4 +22,15 @@ public class JobEvaluationController {
         List<Map<String,Object>> list = jobEvaluationService.getJobEvaluations(studentid, age);
         return list;
     }
+
+    @RequestMapping("/setJobEva/{studentid}/{evaluation}/{age}")
+    @ResponseBody
+    public String setJobEva(@PathVariable("studentid") int studentid, @PathVariable("evaluation") String evaluation, @PathVariable("age") int age) {
+        boolean flag = jobEvaluationService.setJobEva(studentid, evaluation, age);
+        if (flag) {
+            return "success";
+        } else {
+            return "error";
+        }
+    }
 }

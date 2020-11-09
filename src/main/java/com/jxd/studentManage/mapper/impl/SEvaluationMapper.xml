@@ -25,11 +25,36 @@
 
     <!--获取整体评级成绩-->
     <select id="getStudentEvaluation" resultType="java.util.HashMap">
-        select  se.evaluater,se.score,se.evaluation
+        select se.evaluater,se.score,se.evaluation
         from student s
         left join
         sevaluation se
         on s.studentid = se.studentid
         WHERE s.studentid = #{studentid}
     </select>
+
+    <!--打分-->
+    <update id="setScore">
+        update grade
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="grade = case " suffix="end,">
+                <foreach collection="studentid" item="grade" index="index">
+                    <if test="grade.studentid!=null and grade.courseid!=null ">
+                        when studentid=#{studentid} and courseid = #{grade.courseid}
+                        then #{grade.grade}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where studentid = #{studentid} and courseid in
+        <foreach collection="studentid"  item="grade" index="index" open="(" separator="," close=")">
+            #{grade.courseid}
+        </foreach>
+    </update>
+
+    <!--评价-->
+    <update id="setEva">
+        update sevaluation se left join student s on se.studentid = s.studentid
+        set evaluation = #{evaluation} where studentname = #{studentname}
+    </update>
 </mapper>
