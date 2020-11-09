@@ -18,23 +18,23 @@ public interface IStudentListMapper extends BaseMapper<Student> {
     List<Map<String, Object>> getAllStudentByNameAndDept
             (@Param("studentname") String studentname, @Param("departmentname") String departmentname);//查询按钮功能
 
-    //老师
+    //默认查询全部老师
     List<Map<String, Object>> getAllTeacher();
-
+    //根据姓名查询老师
     List<Map<String, Object>> getAllTeacherByName(@Param("teachername") String teachername);
 
-    List<Map<String, Object>> getAllTeacherByDept(@Param("departmentname") String departmentname);
+    /*List<Map<String, Object>> getAllTeacherByDept(@Param("departmentname") String departmentname);
 
     List<Map<String, Object>> getAllTeacherByNameAndDept
-            (@Param("teachername") String teachername, @Param("departmentname") String departmentname);//查询按钮功能
+            (@Param("teachername") String teachername, @Param("departmentname") String departmentname);//查询按钮功能*/
 
-    //经理
+    //默认查询全部经理
     List<Map<String, Object>> getAllManager();
-
+    //根据姓名查询经理
     List<Map<String, Object>> getAllManagerByName(@Param("managername") String managername);
-
+    //根据部门查询经理
     List<Map<String, Object>> getAllManagerByDept(@Param("departmentname") String departmentname);
-
+    //根据姓名和部门查询经理
     List<Map<String, Object>> getAllManagerByNameAndDept
             (@Param("managername") String managername, @Param("departmentname") String departmentname);//查询按钮功能
 
@@ -55,4 +55,26 @@ public interface IStudentListMapper extends BaseMapper<Student> {
     boolean editStudentUser(@Param("oldstudentname") String oldstudentname,@Param("newname") String newname);
     //删除学生
     boolean deleteStudent( int studentid);
+
+    //添加老师
+    boolean insertTeacher(String teacherName);
+    //添加老师到用户表
+    boolean insertTeacherUser(String userName);
+    //修改老师
+    boolean updateTeacher(int teacherId,String teacherName);
+    //修改用户表老师
+    boolean updateTeacherUser(String oldTeacherName,String userName);
+    //删除老师
+    boolean deleteTeacher( int teacherId);
+
+    //添加经理
+    boolean insertManager(String managerName,int departmentId);
+    //添加经理到用户表
+    boolean insertManagerUser(String userName);
+    //修改经理
+    boolean updateManager(String managerName,int departmentId,int managerId);
+    //修改用户表经理
+    boolean updateManagerUser(String oldManagerName,String userName);
+    //删除经理
+    boolean deleteManager( int managerId);
 }
