@@ -29,6 +29,7 @@ public class Student {
     private String idCard;
     private int dutyId;
 
+
     public int getDutyId() {
         return dutyId;
     }

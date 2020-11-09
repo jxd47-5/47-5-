@@ -15,8 +15,15 @@ public class Performence {
     private int score;
     private int markId;
     private int studentId;
-    private int jobMark;
+    private int age;
 
+
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
     public int getStudentId() {
         return studentId;
     }
@@ -25,13 +32,7 @@ public class Performence {
         this.studentId = studentId;
     }
 
-    public int getJobMark() {
-        return jobMark;
-    }
 
-    public void setJobMark(int jobMark) {
-        this.jobMark = jobMark;
-    }
 
     public int getPid() {
         return pid;

@@ -6,4 +6,7 @@ import java.util.Map;
 public interface IJobEvaluationService {
     //获取所有员工评价
     List<Map<String,Object>> getJobEvaluations(int studentid, int age);
+
+    /*许*/
+    boolean addjobEvaluation(int studentid,int age);
 }

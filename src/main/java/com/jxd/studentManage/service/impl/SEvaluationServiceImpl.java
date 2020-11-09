@@ -34,4 +34,10 @@ public class SEvaluationServiceImpl implements ISEvaluationService {
 
         return list;
     }
+
+    @Override
+    public boolean addSEvalution(int studentid, int classid) {
+        return isEvaluationMapper.addSEvalution(studentid, classid);
+    }
+
 }

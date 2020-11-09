@@ -17,4 +17,8 @@
 		on j.age = #{age}
         where p.studentid = #{studentid} and j.age = #{age}
     </select>
+
+    <insert id="addjobEvaluation">
+        insert into jobevaluation(studentid,age) values (#{studentid},#{age})
+    </insert>
 </mapper>

@@ -12,4 +12,16 @@ public interface ISEvaluationMapper {
     List<Map<String,Object>> getOneStudentScore(@Param("studentid") int studentid);
     //获取整体评价分数以及评级优缺点以及评价人
     List<Map<String,Object>> getStudentEvaluation(@Param("studentid") int studentid);
+
+
+
+
+
+
+/*许*/
+    /*新增用户,在学校成绩表中添加人物数据*/
+    boolean addSEvalution(int studentid,int classid);
+
+
+
 }

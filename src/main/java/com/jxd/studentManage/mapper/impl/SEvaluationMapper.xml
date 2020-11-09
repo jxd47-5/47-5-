@@ -32,4 +32,11 @@
         on s.studentid = se.studentid
         WHERE s.studentid = #{studentid}
     </select>
+
+
+    <!--/*许*/-->
+    <!--/*新增用户,在学校成绩表中添加人物数据*/-->
+    <insert id="addSEvalution" parameterType="java.lang.Integer">
+        insert into sevaluation(studentid,classid) values (#{studentid},#{classid})
+    </insert>
 </mapper>

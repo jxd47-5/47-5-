@@ -2,6 +2,8 @@ package com.jxd.studentManage.controller;
 
 import com.jxd.studentManage.model.Class;
 import com.jxd.studentManage.model.Student;
+import com.jxd.studentManage.service.ICourseService;
+import com.jxd.studentManage.service.IMarkService;
 import com.jxd.studentManage.service.IStudentListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
