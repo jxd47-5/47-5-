@@ -21,4 +21,8 @@
     <update id="setJobEvaluations">
         update jobevaluation set evaluation = #{evaluation} where studentid = #{studentid} and age = #{age}
     </update>
+
+    <insert id="addjobEvaluation">
+        insert into jobevaluation(studentid,age) values (#{studentid},#{age})
+    </insert>
 </mapper>

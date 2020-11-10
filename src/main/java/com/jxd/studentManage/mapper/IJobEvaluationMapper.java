@@ -13,4 +13,18 @@ public interface IJobEvaluationMapper {
     List<Map<String,Object>> getEachScore(@Param("studentid") int studentid, @Param("age") int age);
 
     boolean setJobEva(@Param("studentid") int studentid, @Param("evaluation")String evaluation, @Param("age") int age);
+
+
+
+
+
+/*许*/
+    /*新增用户,增加工作评价信息*/
+    boolean addjobEvaluation(int studentid,int age);
+
+
+
+
+
+
 }

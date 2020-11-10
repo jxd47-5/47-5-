@@ -14,14 +14,14 @@ public class Teacher {
     private int teacherId;
     private String teacherName;
     private int departmentId;
-    private int dutyId;
+    private int isDelete;
 
-    public int getDutyId() {
-        return dutyId;
+    public int getIsDelete() {
+        return isDelete;
     }
 
-    public void setDutyId(int dutyId) {
-        this.dutyId = dutyId;
+    public void setIsDelete(int isDelete) {
+        this.isDelete = isDelete;
     }
 
     public int getTeacherId() {

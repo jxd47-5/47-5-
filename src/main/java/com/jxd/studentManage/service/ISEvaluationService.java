@@ -11,4 +11,8 @@ public interface ISEvaluationService {
     boolean setScore(int studentid);
 
     boolean setEva(String evaluation, String studentname);
+
+    /*许*/
+    /*新增用户,在学校成绩表中添加人物数据*/
+    boolean addSEvalution(int studentid,int classid);
 }

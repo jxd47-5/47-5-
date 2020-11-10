@@ -8,4 +8,7 @@ public interface IJobEvaluationService {
     List<Map<String,Object>> getJobEvaluations(int studentid, int age);
 
     boolean setJobEva(int studentid, String evaluation, int age);
+
+    /*许*/
+    boolean addjobEvaluation(int studentid,int age);
 }

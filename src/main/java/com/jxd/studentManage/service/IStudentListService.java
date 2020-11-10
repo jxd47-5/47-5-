@@ -7,7 +7,7 @@ import com.jxd.studentManage.model.Student;
 import java.util.List;
 import java.util.Map;
 
-public interface IStudentListService extends IService<Student> {
+public interface IStudentListService  {
     List<Map<String, Object>> getAll();
 
     List<Map<String, Object>> getAllByName(String studentname);
@@ -49,8 +49,6 @@ public interface IStudentListService extends IService<Student> {
 
     boolean deleteStudent( String studentname);
 
-
-
     //添加老师
     boolean insertTeacher(String teacherName);
     //修改老师
@@ -69,4 +67,5 @@ public interface IStudentListService extends IService<Student> {
     boolean deleteManager( String managerName);
 
     Student selectIdByName(String studentname);
+    Map<String ,Object> getNewStudent(String studentname);
 }

@@ -30,6 +30,6 @@
     </select>
     <!--添加职务-->
     <insert id="addDuty" parameterType="java.lang.Integer">
-        insert into duty(dutyname,departmentid) values('经理',#{id}),('员工',#{id})
+        insert into duty(dutyname,departmentid) values('程序员',#{id}),('业务员',#{id})
     </insert>
 </mapper>

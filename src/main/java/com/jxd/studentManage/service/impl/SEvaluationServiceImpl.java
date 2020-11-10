@@ -49,4 +49,10 @@ public class SEvaluationServiceImpl implements ISEvaluationService {
     public boolean setEva(String evaluation, String studentname) {
         return isEvaluationMapper.setEva(evaluation, studentname);
     }
+
+    @Override
+    public boolean addSEvalution(int studentid, int classid) {
+        return isEvaluationMapper.addSEvalution(studentid, classid);
+    }
+
 }

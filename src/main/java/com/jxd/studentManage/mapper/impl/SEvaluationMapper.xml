@@ -57,4 +57,11 @@
         update sevaluation se left join student s on se.studentid = s.studentid
         set evaluation = #{evaluation} where studentname = #{studentname}
     </update>
+
+
+    <!--/*许*/-->
+    <!--/*新增用户,在学校成绩表中添加人物数据*/-->
+    <insert id="addSEvalution" parameterType="java.lang.Integer">
+        insert into sevaluation(studentid,classid) values (#{studentid},#{classid})
+    </insert>
 </mapper>

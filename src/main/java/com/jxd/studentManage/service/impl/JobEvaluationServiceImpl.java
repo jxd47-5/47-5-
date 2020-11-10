@@ -39,4 +39,10 @@ public class JobEvaluationServiceImpl implements IJobEvaluationService {
     public boolean setJobEva(int studentid, String evaluation, int age) {
         return jobEvaluationMapper.setJobEva(studentid, evaluation, age);
     }
+
+    @Override
+    public boolean addjobEvaluation(int studentid, int age) {
+        return jobEvaluationMapper.addjobEvaluation(studentid, age);
+    }
+
 }
