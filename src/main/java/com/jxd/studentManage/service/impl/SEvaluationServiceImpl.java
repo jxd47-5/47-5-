@@ -41,8 +41,8 @@ public class SEvaluationServiceImpl implements ISEvaluationService {
     }
 
     @Override
-    public boolean setScore(int studentid) {
-        return isEvaluationMapper.setScore(studentid);
+    public boolean setScore(int studentid, int courseid, int grade) {
+        return isEvaluationMapper.setScore(studentid, courseid, grade);
     }
 
     @Override

@@ -8,7 +8,7 @@ public interface ISEvaluationService {
 
     List<Map<String,Object>> getOneStudentScore(int studentid);
 
-    boolean setScore(int studentid);
+    boolean setScore(int studentid, int courseid, int grade);
 
     boolean setEva(String evaluation, String studentname);
 

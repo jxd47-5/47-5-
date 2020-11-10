@@ -13,7 +13,7 @@ public interface ISEvaluationMapper {
     //获取整体评价分数以及评级优缺点以及评价人
     List<Map<String,Object>> getStudentEvaluation(@Param("studentid") int studentid);
     //打分
-    boolean setScore(@Param("studentid") int studentid);
+    boolean setScore(@Param("studentid") int studentid, @Param("courseid") int courseid, @Param("grade") int grade);
     //评价
     boolean setEva(@Param("evaluation") String evaluation, @Param("studentname") String studentname);
 

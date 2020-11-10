@@ -28,10 +28,10 @@ public class SEvaluationController {
         return isEvaluationService.getOneStudentScore(studentid);
     }
 
-    @RequestMapping("/setScore/{studentid}")
+    @RequestMapping("/setScore")
     @ResponseBody
-    public String setScore(@PathVariable("studentid") int studentid) {
-        boolean flag = isEvaluationService.setScore(studentid);
+    public String setScore(@RequestBody Map<String, Object> map) {
+        boolean flag = isEvaluationService.setScore((int)map.get("id"), (int)map.get("courseid"), (int)map.get("grade"));
         if (flag) {
             return "success";
         } else {

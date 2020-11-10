@@ -5,6 +5,7 @@ import com.jxd.studentManage.model.Student;
 import com.jxd.studentManage.service.ICourseService;
 import com.jxd.studentManage.service.IMarkService;
 import com.jxd.studentManage.service.IStudentListService;
+import com.jxd.studentManage.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,20 +25,35 @@ import java.util.Map;
 public class StudentListController {
     @Autowired
     IStudentListService studentListService;
+    @Autowired
+    IStudentService studentService;
 
-
+    /**
+     * 获取全部学生
+     * @return
+     */
     @RequestMapping("/getAllStudent")
     @ResponseBody
     public List<Map<String, Object>> getAllStudent() {
         return studentListService.getAll();
     }
 
+    /**
+     * 通过姓名查询学生
+     * @param studentname
+     * @return
+     */
     @RequestMapping("/getAllStudentByName/{studentname}")
     @ResponseBody
     public List<Map<String, Object>> getAllStudentByName(@PathVariable("studentname") String studentname) {
         return studentListService.getAllByName(studentname);
     }
 
+    /**
+     * 通过部门查询学生
+     * @param departmentname
+     * @return
+     */
     @RequestMapping("/getAllStudentByDept/{departmentname}")
     @ResponseBody
     public List<Map<String, Object>> getAllStudentByDept(@PathVariable("departmentname") String departmentname) {
@@ -45,6 +61,12 @@ public class StudentListController {
         return list;
     }
 
+    /**
+     * 通过姓名和部门查询学生
+     * @param studentname
+     * @param departmentname
+     * @return
+     */
     @RequestMapping("/getAllStudentByNameAndDept/{studentname}/{departmentname}")
     @ResponseBody
     public List<Map<String, Object>> getAllStudentByNameAndDept(@PathVariable("studentname") String studentname,
@@ -131,7 +153,7 @@ public class StudentListController {
         return studentListService.getAllManagerByNameAndDept(managername, departmentname);
     }
 
-    @RequestMapping("/delStudent/{studentid}")
+    /*@RequestMapping("/delStudent/{studentid}")
     @ResponseBody
     public String delStudent(@PathVariable("studentid") int[] studentId) {
         if (studentListService.delStudent(studentId)) {
@@ -140,9 +162,9 @@ public class StudentListController {
         } else {
             return "error";
         }
-    }
+    }*/
 
-    @RequestMapping("/updateStudent/{studentid}")
+    /*@RequestMapping("/updateStudent/{studentid}")
     @ResponseBody
     public String updateStudent(@PathVariable("studentid")int studentId) {
         if (studentListService.updateStudent(studentId)) {
@@ -151,8 +173,13 @@ public class StudentListController {
         } else {
             return "error";
         }
-    }
+    }*/
 
+    /**
+     * 添加学生
+     * @param map
+     * @return
+     */
     @RequestMapping("/addStudent")
     @ResponseBody
     public String addStudent(@RequestBody Map<String,Object> map) {
@@ -162,6 +189,12 @@ public class StudentListController {
                 return "error";
             }
     }
+
+    /**
+     * 获得班期
+     * @param classname
+     * @return
+     */
     @RequestMapping("getClass/{classname}")
     @ResponseBody
     public String getClass(@PathVariable("classname") String classname){
@@ -173,6 +206,13 @@ public class StudentListController {
         }
         return "error";
     }
+
+    /**
+     * 添加班期
+     * @param classname
+     * @param teacherid
+     * @return
+     */
     @RequestMapping("addClass/{classname}/{teacherid}")
     @ResponseBody
     public String addClass(@PathVariable("classname") String classname,@PathVariable("teacherid") int teacherid){
@@ -182,6 +222,13 @@ public class StudentListController {
             return "error";
         }
     }
+
+    /**
+     * 修改学生
+     * @param oldstudentname
+     * @param map
+     * @return
+     */
     @RequestMapping("/editStudent/{oldstudentname}")
     @ResponseBody
     public  String editStudent (@PathVariable("oldstudentname") String oldstudentname,@RequestBody Map<String,Object> map){
@@ -191,10 +238,16 @@ public class StudentListController {
             return "error";
         }
     }
-    @RequestMapping("/deleteStudent/{studentid}")
+
+    /**
+     * 删除学生
+     * @param studentname
+     * @return
+     */
+    @RequestMapping("/deleteStudent/{studentname}")
     @ResponseBody
-    public String deleteStudent(@PathVariable("studentid") int studentid){
-        if (studentListService.deleteStudent(studentid)){
+    public String deleteStudent(@PathVariable("studentname") String  studentname){
+        if (studentListService.deleteStudent(studentname)){
             return "success";
         }else {
             return "error";
@@ -236,13 +289,13 @@ public class StudentListController {
 
     /**
      * 删除老师
-     * @param teacherId
+     * @param teacherName
      * @return
      */
-    @RequestMapping("/deleteTeacher/{teacherId}")
+    @RequestMapping("/deleteTeacher/{teacherName}")
     @ResponseBody
-    public String deleteTeacher(@PathVariable("teacherId") int teacherId){
-        if (studentListService.deleteTeacher(teacherId)){
+    public String deleteTeacher(@PathVariable("teacherName") String teacherName){
+        if (studentListService.deleteTeacher(teacherName)){
             return "success";
         }else {
             return "error";
@@ -285,16 +338,33 @@ public class StudentListController {
 
     /**
      * 删除经理
-     * @param managerId
+     * @param managerName
      * @return
      */
-    @RequestMapping("/deleteManager/{managerId}")
+    @RequestMapping("/deleteManager/{managerName}")
     @ResponseBody
-    public String deleteManager(@PathVariable("managerId") int managerId){
-        if (studentListService.deleteManager(managerId)){
+    public String deleteManager(@PathVariable("managerName") String managerName){
+        if (studentListService.deleteManager(managerName)){
             return "success";
         }else {
             return "error";
         }
+    }
+
+    /**
+     * 根据姓名查id
+     * @param stidentname
+     * @return
+     */
+    @RequestMapping("/selectIdByName/{studentname}")
+    @ResponseBody
+    public Student selectIdByName(@PathVariable("studentname") String stidentname){
+        return studentListService.selectIdByName(stidentname);
+    }
+
+    @RequestMapping("/getOneStudent/{studentId}")
+    @ResponseBody
+    public List<Map<String, Object>> getOneStudent(@PathVariable("studentId") int studentId){
+        return studentService.getOneStudent(studentId);
     }
 }

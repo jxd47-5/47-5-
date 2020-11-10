@@ -40,15 +40,15 @@
             <trim prefix="grade = case " suffix="end,">
                 <foreach collection="studentid" item="grade" index="index">
                     <if test="grade.studentid!=null and grade.courseid!=null ">
-                        when studentid=#{studentid} and courseid = #{grade.courseid}
-                        then #{grade.grade}
+                        when studentid=#{studentid} and courseid = #{courseid}
+                        then #{grade}
                     </if>
                 </foreach>
             </trim>
         </trim>
         where studentid = #{studentid} and courseid in
         <foreach collection="studentid"  item="grade" index="index" open="(" separator="," close=")">
-            #{grade.courseid}
+            #{courseid}
         </foreach>
     </update>
 
