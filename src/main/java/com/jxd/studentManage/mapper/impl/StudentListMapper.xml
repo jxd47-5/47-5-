@@ -148,7 +148,7 @@
         delete from user where username = #{studentname}
     </update>
 
-<!--修改-->
+    <!--修改-->
     <update id="editStudent" parameterType="java.util.HashMap">
         update student set studentname=#{map.studentname},sex = #{map.sex},nation = #{map.nation},
         birthday = #{map.birthday},address=#{map.address},ismarried = #{map.ismarried},tel = #{map.tel},

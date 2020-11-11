@@ -13,4 +13,8 @@ public interface IJobEvaluationService {
 
     /*许*/
     boolean addjobEvaluation(int studentid,int age);
+    boolean setJobEva0(String evaluation, int studentid);
+    boolean setJobEva1(String evaluation, int studentid);
+    boolean setJobEva2(String evaluation, int studentid);
+    boolean setJobEva3(String evaluation, int studentid);
 }

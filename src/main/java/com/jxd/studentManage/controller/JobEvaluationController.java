@@ -45,4 +45,42 @@ public class JobEvaluationController {
             return "error";
         }
     }
+
+    /*许*/
+    @RequestMapping("/setJobEva0/{evaluation}/{studentid}")
+    @ResponseBody
+    public  String setJobEva0(@PathVariable("evaluation") String evaluation,@PathVariable("studentid") int studentid){
+        if (jobEvaluationService.setJobEva0(evaluation,studentid)){
+            return "success";
+        }else {
+            return "error";
+        }
+    }
+    @RequestMapping("/setJobEva1/{evaluation}/{studentid}")
+    @ResponseBody
+    public  String setJobEva1(@PathVariable("evaluation") String evaluation,@PathVariable("studentid") int studentid){
+        if (jobEvaluationService.setJobEva1(evaluation,studentid)){
+            return "success";
+        }else {
+            return "error";
+        }
+    }
+    @RequestMapping("/setJobEva2/{evaluation}/{studentid}")
+    @ResponseBody
+    public  String setJobEva2(@PathVariable("evaluation") String evaluation,@PathVariable("studentid") int studentid){
+        if (jobEvaluationService.setJobEva2(evaluation,studentid)){
+            return "success";
+        }else {
+            return "error";
+        }
+    }
+    @RequestMapping("/setJobEva3/{evaluation}/{studentid}")
+    @ResponseBody
+    public  String setJobEva3(@PathVariable("evaluation") String evaluation,@PathVariable("studentid") int studentid){
+        if (jobEvaluationService.setJobEva3(evaluation,studentid)){
+            return "success";
+        }else {
+            return "error";
+        }
+    }
 }

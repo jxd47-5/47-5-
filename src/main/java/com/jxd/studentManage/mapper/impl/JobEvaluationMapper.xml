@@ -44,4 +44,21 @@
     <insert id="addjobEvaluation">
         insert into jobevaluation(studentid,age) values (#{studentid},#{age})
     </insert>
+
+    <insert id="setJobEva0">
+        update jobevaluation set evaluation = #{evaluation}  where
+        studentid = #{studentid} and age=0
+    </insert>
+    <insert id="setJobEva1">
+        update jobevaluation set evaluation = #{evaluation}  where
+        studentid = #{studentid} and age=1
+    </insert>
+    <insert id="setJobEva2">
+        update jobevaluation set evaluation = #{evaluation}  where
+        studentid = #{studentid} and age=2
+    </insert>
+    <insert id="setJobEva3">
+        update jobevaluation set evaluation = #{evaluation}  where
+        studentid = #{studentid} and age=3
+    </insert>
 </mapper>

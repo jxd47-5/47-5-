@@ -1,6 +1,7 @@
 package com.jxd.studentManage.mapper;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Map;
@@ -24,9 +25,11 @@ public interface IJobEvaluationMapper {
     /*新增用户,增加工作评价信息*/
     boolean addjobEvaluation(int studentid,int age);
 
+    boolean setJobEva0(String evaluation, int studentid);
 
-
-
+    boolean setJobEva1(String evaluation, int studentid);
+    boolean setJobEva2(String evaluation, int studentid);
+    boolean setJobEva3(String evaluation, int studentid);
 
 
 }

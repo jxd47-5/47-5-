@@ -1,5 +1,6 @@
 package com.jxd.studentManage.model;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 
 /**
@@ -10,8 +11,9 @@ import com.baomidou.mybatisplus.annotation.TableId;
  * @Version 1.0
  */
 public class Class {
-    @TableId
+    @TableId("classid")
     private int classId;
+    @TableField("classname")
     private String className;
     private int teacherId;
 

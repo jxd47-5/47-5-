@@ -50,4 +50,24 @@ public class JobEvaluationServiceImpl implements IJobEvaluationService {
         return jobEvaluationMapper.addjobEvaluation(studentid, age);
     }
 
+    @Override
+    public boolean setJobEva0(String evaluation, int studentid) {
+        return jobEvaluationMapper.setJobEva0(evaluation,studentid);
+    }
+
+    @Override
+    public boolean setJobEva1(String evaluation, int studentid) {
+        return jobEvaluationMapper.setJobEva1(evaluation,studentid);
+    }
+
+    @Override
+    public boolean setJobEva2(String evaluation, int studentid) {
+        return jobEvaluationMapper.setJobEva2(evaluation,studentid);
+    }
+
+    @Override
+    public boolean setJobEva3(String evaluation, int studentid) {
+        return jobEvaluationMapper.setJobEva3(evaluation,studentid);
+    }
+
 }
