@@ -1,12 +1,10 @@
 package com.jxd.studentManage.controller;
 
+import com.jxd.studentManage.model.Grade;
 import com.jxd.studentManage.service.ISEvaluationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -28,10 +26,10 @@ public class SEvaluationController {
         return isEvaluationService.getOneStudentScore(studentid);
     }
 
-    @RequestMapping("/setScore")
+    @RequestMapping("/setScore/{studentid}")
     @ResponseBody
-    public String setScore(@RequestBody Map<String, Object> map) {
-        boolean flag = isEvaluationService.setScore((int)map.get("id"), (int)map.get("courseid"), (int)map.get("grade"));
+    public String setScore(@PathVariable("studentid") int studentid,@RequestBody List<Map<String,Object>> map) {
+        boolean flag = isEvaluationService.setScore(map, studentid);
         if (flag) {
             return "success";
         } else {
@@ -41,12 +39,11 @@ public class SEvaluationController {
 
     @RequestMapping("/setEva")
     @ResponseBody
-    public String setEva(@RequestBody Map<String, Object> map) {
-        String evaluation = map.get("evaluation").toString();
-        String studentname = map.get("studentname").toString();
+    public String setEva(@RequestBody String studentid) {
 
-        boolean flag = isEvaluationService.setEva(evaluation, studentname);
-        if (flag) {
+
+      //  boolean flag = isEvaluationService.setEva(eva, studentid);
+        if (true) {
             return "success";
         } else {
             return "error";

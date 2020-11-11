@@ -87,4 +87,6 @@ public interface IStudentListMapper extends BaseMapper<Student> {
     boolean deleteManager( int managerId);
     //查询新添加的学生信息
     Map<String ,Object> getNewStudent(String studentname);
+
+
 }

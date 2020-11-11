@@ -23,7 +23,7 @@ public class StudentServiceImpl extends ServiceImpl<IStudentMapper, Student> imp
     private IStudentMapper studentMapper;
 
     @Override
-    public List<Map<String, Object>> getOneStudent(int studentId) {
+    public Map<String, Object> getOneStudent(int studentId) {
         return studentMapper.getOneStudent(studentId);
     }
 

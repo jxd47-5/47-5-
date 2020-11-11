@@ -36,6 +36,11 @@ public class JobEvaluationServiceImpl implements IJobEvaluationService {
     }
 
     @Override
+    public boolean setPerformanceMark(List<Map<String, Object>> list, int studentid, int age) {
+        return jobEvaluationMapper.setPerformanceMark(list, studentid, age);
+    }
+
+    @Override
     public boolean setJobEva(int studentid, String evaluation, int age) {
         return jobEvaluationMapper.setJobEva(studentid, evaluation, age);
     }

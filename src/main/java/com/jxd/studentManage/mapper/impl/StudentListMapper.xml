@@ -226,7 +226,7 @@
 
     <!--根据姓名查id-->
     <select id="selectIdByName" resultType="Student">
-        select studentid from student where studentname = #{studentname}
+        select * from student where studentname = #{studentname}
     </select>
 
 </mapper>

@@ -12,6 +12,8 @@ public interface IJobEvaluationMapper {
     //获取工作分项的成绩
     List<Map<String,Object>> getEachScore(@Param("studentid") int studentid, @Param("age") int age);
 
+    boolean setPerformanceMark(@Param("list")List<Map<String, Object>> list, @Param("studentid")int studentid, @Param("age") int age);
+
     boolean setJobEva(@Param("studentid") int studentid, @Param("evaluation")String evaluation, @Param("age") int age);
 
 

@@ -15,10 +15,12 @@
 
     <!--获取成绩-->
     <select id="getOneStudentScore" resultType="java.util.HashMap">
-        select c.courseid,c.coursename,g.grade
+        select c.courseid,c.coursename,g.grade,s.studentid
             from course c
             left join grade g
             on c.courseid=g.courseid
+            left join student s
+            on g.studentid = s.studentid
             where g.studentid = #{studentid}
             group by c.courseid
     </select>
@@ -38,24 +40,24 @@
         update grade
         <trim prefix="set" suffixOverrides=",">
             <trim prefix="grade = case " suffix="end,">
-                <foreach collection="studentid" item="grade" index="index">
-                    <if test="grade.studentid!=null and grade.courseid!=null ">
-                        when studentid=#{studentid} and courseid = #{courseid}
-                        then #{grade}
+                <foreach collection="map" item="score" >
+                    <if test="score.courseid!=null ">
+                        when studentid=#{studentid} and courseid = #{score.courseid}
+                        then #{score.grade}
                     </if>
                 </foreach>
             </trim>
         </trim>
         where studentid = #{studentid} and courseid in
-        <foreach collection="studentid"  item="grade" index="index" open="(" separator="," close=")">
-            #{courseid}
+        <foreach collection="map" item="score" open="(" separator="," close=")">
+            #{score.courseid}
         </foreach>
     </update>
 
     <!--评价-->
     <update id="setEva">
         update sevaluation se left join student s on se.studentid = s.studentid
-        set evaluation = #{evaluation} where studentname = #{studentname}
+        set evaluation = #{eva} where s.studentid = #{studentid}
     </update>
 
 

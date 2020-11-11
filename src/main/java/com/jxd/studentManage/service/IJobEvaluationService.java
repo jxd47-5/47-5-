@@ -7,6 +7,8 @@ public interface IJobEvaluationService {
     //获取所有员工评价
     List<Map<String,Object>> getJobEvaluations(int studentid, int age);
 
+    boolean setPerformanceMark(List<Map<String,Object>> list, int studentid, int age);
+
     boolean setJobEva(int studentid, String evaluation, int age);
 
     /*许*/

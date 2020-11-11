@@ -364,7 +364,7 @@ public class StudentListController {
 
     @RequestMapping("/getOneStudent/{studentId}")
     @ResponseBody
-    public List<Map<String, Object>> getOneStudent(@PathVariable("studentId") int studentId){
+    public Map<String, Object> getOneStudent(@PathVariable("studentId") int studentId){
         return studentService.getOneStudent(studentId);
     }
 }

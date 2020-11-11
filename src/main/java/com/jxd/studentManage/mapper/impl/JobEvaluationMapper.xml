@@ -3,11 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace接口的全路径，用于关联dao层接口-->
 <mapper namespace="com.jxd.studentManage.mapper.IJobEvaluationMapper">
+    <!--获取工作评价表-->
     <select id="getJobEvaluations" resultType="java.util.HashMap">
         SELECT evaluater,score,evaluation FROM jobevaluation
         WHERE studentid = #{studentid} and age = #{age}
     </select>
-
+    <!--获取工作分项的成绩-->
     <select id="getEachScore" resultType="java.util.HashMap">
         select m.markname,p.score,m.markid
         from performence p
@@ -17,6 +18,24 @@
 		on j.age = #{age}
         where p.studentid = #{studentid}
     </select>
+    <!--打分-->
+    <update id="setPerformanceMark">
+        update performence
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="score = case " suffix="end,">
+                <foreach collection="list" item="scores" >
+                    <if test="scores.markid!=null ">
+                        when studentid=#{studentid} and markid = #{scores.markid}
+                        then #{scores.score}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where studentid = #{studentid} and markid in
+        <foreach collection="list" item="scores" open="(" separator="," close=")">
+            #{scores.markid}
+        </foreach>
+    </update>
 
     <update id="setJobEvaluations">
         update jobevaluation set evaluation = #{evaluation} where studentid = #{studentid} and age = #{age}

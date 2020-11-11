@@ -7,6 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface IStudentService extends IService<Student> {
-    List<Map<String, Object>> getOneStudent(int studentId);
+    Map<String, Object> getOneStudent(int studentId);
     boolean editStudent(Map<String,Object> map);
 }

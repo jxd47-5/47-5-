@@ -1,6 +1,7 @@
 package com.jxd.studentManage.service.impl;
 
 import com.jxd.studentManage.mapper.ISEvaluationMapper;
+import com.jxd.studentManage.model.Grade;
 import com.jxd.studentManage.service.ISEvaluationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,13 +42,13 @@ public class SEvaluationServiceImpl implements ISEvaluationService {
     }
 
     @Override
-    public boolean setScore(int studentid, int courseid, int grade) {
-        return isEvaluationMapper.setScore(studentid, courseid, grade);
+    public boolean setScore(List<Map<String,Object>> map, int studentid) {
+        return isEvaluationMapper.setScore(map, studentid);
     }
 
     @Override
-    public boolean setEva(String evaluation, String studentname) {
-        return isEvaluationMapper.setEva(evaluation, studentname);
+    public boolean setEva(String eva, int studentid) {
+        return isEvaluationMapper.setEva(eva, studentid);
     }
 
     @Override
